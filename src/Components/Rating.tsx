@@ -13,7 +13,9 @@ function Star(props: StarPropsType) {
     }
 }
 
-type PropsRatingType = {stars: number}
+type PropsRatingType = {
+    stars: 0 | 1 | 2 | 3 | 4 | 5
+}
 
 const Rating: FC<PropsRatingType> =({stars}) =>{
     console.log('Rating is rendering')
