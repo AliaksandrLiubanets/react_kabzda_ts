@@ -33,19 +33,4 @@ function Accordion(props: AccordionPropsType) {
         </div>
 }
 
-function Accordion2(props: AccordionPropsType) {
-    console.log('Accordion is rendering')
-    if(!props.collapsed) {
-        return <div>
-            <AccordionTitle title={props.title}/>
-            <AccordionBody />
-        </div>
-    } else {
-        return <div>
-            <AccordionTitle title={props.title}/>
-        </div>
-    }
-
-}
-
 export default Accordion;
