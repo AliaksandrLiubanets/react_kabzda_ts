@@ -8,7 +8,6 @@ function App() {
   return <div>
     {/*<AppTitle title={'This is App Component'}/>*/}
     {/*<AppTitle title={'My Friends'}/>*/}
-    {/*<Rating stars={6}/>*/}
     <Accordion title={'Menu'} collapsed={true}/>
     <Accordion title={'Users'} collapsed={false}/>
     <Rating stars={0}/>
