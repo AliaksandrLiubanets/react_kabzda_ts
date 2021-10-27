@@ -1,6 +1,8 @@
 import React from 'react';
 import {OnOff} from './Components/onOff/OnOff'
 import UncontrolledAccordion from './Components/UncontrolledAccordion/UncontrolledAccordion'
+import UncontrolledRating from './Components/UncontrolledRating/UncontrolledRating'
+import Rating from './Components/Rating/Rating'
 
 function App() {
   console.log('App rendering')
@@ -10,9 +12,8 @@ function App() {
     {/* eslint-disable-next-line react/jsx-no-undef */}
     <UncontrolledAccordion title={'Menu'} />
     <UncontrolledAccordion title={'Users'} />
-    {/*<Rating stars={0}/>*/}
-    {/*<Rating stars={1}/>*/}
-    {/*<Rating stars={2}/>*/}
+    <UncontrolledRating />
+
     {/*<Rating stars={3}/>*/}
     {/*<Rating stars={4}/>*/}
     {/*<Rating stars={5}/>*/}
