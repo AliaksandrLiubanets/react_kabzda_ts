@@ -1,13 +1,13 @@
 .onOff {
-    margin-top: 20px;
-    padding: 20px;
+    /*margin-top: 5px;*/
+    /*padding: 5px;*/
 }
 
 .on, .off, .empty {
     font-size: 18px;
     display: inline-block;
     width: 50px;
-    height: 20px;
+    height: 24px;
     background-color: #d5e8ec;
     border: 1px solid grey;
     border-radius: 3px;
@@ -26,7 +26,7 @@
 
 .green_circle, .red_circle {
     display: inline-block;
-    margin: 3px 0 0 15px;
+    margin: 1px 0 0 10px;
     width: 24px;
     height: 24px;
     background-color: green;
