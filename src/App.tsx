@@ -1,7 +1,4 @@
 import React from 'react';
-import AppTitle from "./Components/AppTitle/AppTitle";
-import Rating from "./Components/Rating/Rating";
-import Accordion from "./Components/Accordion/Accordion";
 import {OnOff} from './Components/onOff/OnOff'
 import UncontrolledAccordion from './Components/UncontrolledAccordion/UncontrolledAccordion'
 
