@@ -4,6 +4,8 @@ import white_star from '../../assets/white_star.png'
 
 type StarPropsType = {
     selected: boolean
+    index: number
+    setStar: (star: number) => void
 }
 
 function Star(props: StarPropsType) {
@@ -18,10 +20,10 @@ function Star(props: StarPropsType) {
 
     return ( <Fragment>
             {props.selected
-                ? <div style={starStyle}>
+                ? <div style={starStyle} onClick={() => props.setStar(props.index)}>
                     <img style={imageStyle} src={yellow_star} alt={''}/>
                 </div>
-                : <div style={starStyle}>
+                : <div style={starStyle} onClick={() => props.setStar(props.index)}>
                     <img style={imageStyle} src={white_star} alt={''}/>
                 </div>
             }
@@ -32,7 +34,7 @@ const UncontrolledRating = () => {
     console.log('Rating is rendering')
     let starsArray = []
 
-    let [stars, setStars] = useState<number>(2)
+    let [stars, setStars] = useState<number>(0)
 
     let count = stars
     for (let i = 0; i < 5; i++) {
@@ -45,14 +47,14 @@ const UncontrolledRating = () => {
     }
 
     let starsElements = starsArray.map((number, index) => number === 1
-        ? <Star key={index} selected={true}/>
-        : <Star key={index} selected={false}/>)
+        ? <Star key={index} selected={true} setStar={setStars} index={index + 1}/>
+        : <Star key={index} selected={false} setStar={setStars} index={index + 1}/>)
 
     const blockStyle = {margin: '10px 0 10px 0'}
     return <div style={blockStyle}>
         {starsElements}
-        <button onClick={() => setStars(--stars)}> -Star</button>
-        <button onClick={() => setStars(++stars)}> +Star</button>
+        {/*<button onClick={() => setStars(--stars)}> -Star</button>*/}
+        {/*<button onClick={() => setStars(++stars)}> +Star</button>*/}
     </div>
 }
 
