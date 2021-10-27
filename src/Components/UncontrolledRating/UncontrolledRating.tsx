@@ -16,18 +16,10 @@ function Star(props: StarPropsType) {
     const imageStyle = {
         width: '15px'
     }
-    console.log('Star is rendering')
 
-    return ( <Fragment>
-            {props.selected
-                ? <div style={starStyle} onClick={() => props.setStar(props.index)}>
-                    <img style={imageStyle} src={yellow_star} alt={''}/>
-                </div>
-                : <div style={starStyle} onClick={() => props.setStar(props.index)}>
-                    <img style={imageStyle} src={white_star} alt={''}/>
-                </div>
-            }
-    </Fragment>)
+    return <div style={starStyle} onClick={() => props.setStar(props.index)}>
+        <img style={imageStyle} src={props.selected ? yellow_star : white_star} alt={''}/>
+    </div>
 }
 
 const UncontrolledRating = () => {
@@ -58,4 +50,4 @@ const UncontrolledRating = () => {
     </div>
 }
 
-export default UncontrolledRating;
+export default UncontrolledRating
