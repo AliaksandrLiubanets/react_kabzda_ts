@@ -1,6 +1,6 @@
 .onOff {
-    /*margin-top: 5px;*/
-    /*padding: 5px;*/
+    display: flex;
+    align-items: center;
 }
 
 .on, .off, .empty {
