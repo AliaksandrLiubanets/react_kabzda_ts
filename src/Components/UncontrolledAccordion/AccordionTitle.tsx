@@ -3,10 +3,10 @@ import React from 'react'
 type AccordionTitleType = {
     title: string
     collapsed: boolean
-    showAccordionBody: (collapsed: boolean) => void
+    showAccordionBody: () => void
 }
 
 export function AccordionTitle(props: AccordionTitleType) {
     console.log('AccordionTitle is rendering')
-    return <h1 onClick={() => props.showAccordionBody(!props.collapsed)}>{props.title}</h1>
+    return <h1 onClick={props.showAccordionBody}>{props.title}</h1>
 }
