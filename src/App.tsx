@@ -12,7 +12,7 @@ function App() {
     {/*<AppTitle title={'This is App Component'}/>*/}
     {/*<AppTitle title={'My Friends'}/>*/}
     {/* eslint-disable-next-line react/jsx-no-undef */}
-    <UncontrolledAccordion title={'Menu'} />
+    <UncontrolledAccordion title={'Menu'}  />
     <UncontrolledAccordion title={'Users'} />
     <UncontrolledRating />
     <UncontrolledRating />
