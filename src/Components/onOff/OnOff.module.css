@@ -1,6 +1,7 @@
 .onOff {
     display: flex;
     align-items: center;
+    margin-top: 5px;
 }
 
 .on, .off, .empty {
@@ -27,8 +28,8 @@
 .green_circle, .red_circle {
     display: inline-block;
     margin: 1px 0 0 10px;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     background-color: green;
     border-radius: 50%;
 
