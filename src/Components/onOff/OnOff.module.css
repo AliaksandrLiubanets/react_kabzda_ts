@@ -1,0 +1,38 @@
+.onOff {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.on, .off, .empty {
+    font-size: 18px;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    background-color: #d5e8ec;
+    border: 1px solid grey;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 3px;
+    margin-left: 1px;
+}
+
+.on {
+    background-color: green;
+}
+
+.off {
+    background-color: red;
+}
+
+.green_circle, .red_circle {
+    display: inline-block;
+    margin: 3px 0 0 15px;
+    width: 24px;
+    height: 24px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.red_circle {
+    background-color: red;
+}

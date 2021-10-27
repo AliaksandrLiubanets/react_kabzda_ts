@@ -2,6 +2,7 @@ import React from 'react';
 import AppTitle from "./Components/AppTitle";
 import Rating from "./Components/Rating";
 import Accordion from "./Components/Accordion";
+import {Toggle} from './Components/onOff/OnOff'
 
 function App() {
   console.log('App rendering')
@@ -16,6 +17,7 @@ function App() {
     <Rating stars={3}/>
     <Rating stars={4}/>
     <Rating stars={5}/>
+    <Toggle isToggle={false}/>
   </div>
 }
 export default App
