@@ -42,9 +42,7 @@ let starsElements = starsArray.map((number, index) => number === 1
     ? <Star key={index} selected={true} />
     : <Star key={index} selected={false} />)
 
-
-
-    const blockStyle = {margin: "20px"}
+    const blockStyle = {margin: "10px 0 10px 0"}
     return <div style={blockStyle}>
         {starsElements}
         <button onClick={() => setStars(--stars)}> -Star</button>
