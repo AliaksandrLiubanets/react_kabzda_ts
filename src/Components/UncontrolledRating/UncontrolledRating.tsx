@@ -1,28 +1,34 @@
-import React, {FC, useState} from 'react'
+import React, {FC, Fragment, useState} from 'react'
 import yellow_star from '../../assets/yellow_star.png'
 import white_star from '../../assets/white_star.png'
 
 type StarPropsType = {
     selected: boolean
-    }
+}
 
 function Star(props: StarPropsType) {
     const starStyle = {
-        margin: "5px",
+        margin: '5px',
         display: 'inline'
     }
     const imageStyle = {
-        width: "15px",
+        width: '15px'
     }
-    console.log("Star is rendering")
-    if (props.selected) {
-        return <div style={starStyle}><img style={imageStyle} src={yellow_star}/></div>
-    } else {
-        return <div style={starStyle}><img style={imageStyle} src={white_star}/></div>
-    }
+    console.log('Star is rendering')
+
+    return ( <Fragment>
+            {props.selected
+                ? <div style={starStyle}>
+                    <img style={imageStyle} src={yellow_star} alt={''}/>
+                </div>
+                : <div style={starStyle}>
+                    <img style={imageStyle} src={white_star} alt={''}/>
+                </div>
+            }
+    </Fragment>)
 }
 
-const UncontrolledRating =() => {
+const UncontrolledRating = () => {
     console.log('Rating is rendering')
     let starsArray = []
 
@@ -38,11 +44,11 @@ const UncontrolledRating =() => {
         }
     }
 
-let starsElements = starsArray.map((number, index) => number === 1
-    ? <Star key={index} selected={true} />
-    : <Star key={index} selected={false} />)
+    let starsElements = starsArray.map((number, index) => number === 1
+        ? <Star key={index} selected={true}/>
+        : <Star key={index} selected={false}/>)
 
-    const blockStyle = {margin: "10px 0 10px 0"}
+    const blockStyle = {margin: '10px 0 10px 0'}
     return <div style={blockStyle}>
         {starsElements}
         <button onClick={() => setStars(--stars)}> -Star</button>

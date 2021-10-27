@@ -15,6 +15,7 @@ function App() {
     <UncontrolledAccordion title={'Menu'} />
     <UncontrolledAccordion title={'Users'} />
     <UncontrolledRating />
+    <UncontrolledRating />
 
     {/*<Rating stars={3}/>*/}
     {/*<Rating stars={4}/>*/}
