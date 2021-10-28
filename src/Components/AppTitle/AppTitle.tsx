@@ -5,7 +5,6 @@ type AppTitleProps = {
 }
 
 function AppTitle(props: AppTitleProps) {
-    console.log('AppTitle is rendering')
     return <h1>{ props.title }</h1>
 }
 

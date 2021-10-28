@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 
 function AccordionBody() {
-    console.log('AccordionBody is rendering')
     return <div>
         <ul>
             <li>1</li>

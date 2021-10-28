@@ -5,7 +5,6 @@ type StarPropsType = {
 }
 
 function Star(props: StarPropsType) {
-    console.log("Star is rendering")
     if (props.selected) {
         return <span><b>star</b> </span>
     } else {
@@ -18,7 +17,6 @@ type PropsRatingType = {
 }
 
 const Rating: FC<PropsRatingType> =({stars}) =>{
-    console.log('Rating is rendering')
     let starsArray = []
     let count = stars
     for (let i = 0; i < 5; i++) {
