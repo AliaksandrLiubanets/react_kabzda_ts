@@ -13,8 +13,9 @@
     border: 1px solid grey;
     border-radius: 3px;
     text-align: center;
-    padding: 0px 0 5px 0;
+    padding: 0 0 5px 0;
     margin-left: 1px;
+    cursor: pointer;
 }
 
 .on {
