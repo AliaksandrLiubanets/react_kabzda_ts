@@ -1,19 +1,27 @@
-import React, {FC} from "react"
+import React, {useState} from 'react'
 
 type StarPropsType = {
     selected: boolean
+    setStarsNumber: (starsNum: number) => void
+    index: number
 }
 
 function Star(props: StarPropsType) {
-    return <span>{props.selected ? <b>star </b> : "star "}</span>
+    return <span onClick={() => props.setStarsNumber(props.index + 1)}>{props.selected ? <b>star </b> : "star "}</span>
 }
+
+export type StarNumberType = 0 | 1 | 2 | 3 | 4 | 5
 
 type PropsRatingType = {
-    stars: 0 | 1 | 2 | 3 | 4 | 5
+    stars: number
 }
 
-const Rating: FC<PropsRatingType> =({stars}) =>{
+function Rating (props: PropsRatingType) {
     let starsArray = []
+    const [stars, setStars] = useState<number>(props.stars)
+    const setStarsNumber = (starsNum: number) => {
+        setStars(starsNum)
+    }
     let count = stars
     for (let i = 0; i < 5; i++) {
         if (count > 0) {
@@ -25,8 +33,8 @@ const Rating: FC<PropsRatingType> =({stars}) =>{
     }
 
 let starsElements = starsArray.map((number, index) => number === 1
-    ? <Star key={index} selected={true} />
-    : <Star key={index} selected={false} />)
+    ? <Star key={index} selected={true} setStarsNumber={setStarsNumber} index={index}/>
+    : <Star key={index} selected={false} setStarsNumber={setStarsNumber} index={index}/>)
 
     return <div>
         {starsElements}

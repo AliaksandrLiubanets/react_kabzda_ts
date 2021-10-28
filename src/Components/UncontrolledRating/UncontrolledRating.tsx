@@ -1,4 +1,4 @@
-import React, {FC, Fragment, useState} from 'react'
+import React, {useState} from 'react'
 import yellow_star from '../../assets/yellow_star.png'
 import white_star from '../../assets/white_star.png'
 
@@ -23,7 +23,6 @@ function Star(props: StarPropsType) {
 }
 
 const UncontrolledRating = () => {
-    console.log('Rating is rendering')
     let starsArray = []
 
     let [stars, setStars] = useState<number>(0)
