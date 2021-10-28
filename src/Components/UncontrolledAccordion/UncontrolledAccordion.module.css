@@ -1,3 +1,7 @@
 .h1_title {
     cursor: pointer;
 }
+
+.accodrion_body {
+    margin: -10px 0 0 0;
+}
