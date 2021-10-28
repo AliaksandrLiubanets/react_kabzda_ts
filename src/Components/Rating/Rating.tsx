@@ -37,7 +37,7 @@ let starsElements = starsArray.map((number, index) => number === 1
     ? <Star key={index} selected={true} setStarsNumber={setStarsNumber} index={index}/>
     : <Star key={index} selected={false} setStarsNumber={setStarsNumber} index={index}/>)
 
-    return <div>
+    return <div className={s.rating}>
         {starsElements}
     </div>
 }
