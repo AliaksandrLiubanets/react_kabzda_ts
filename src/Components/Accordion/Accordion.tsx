@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import s from '../UncontrolledAccordion/UncontrolledAccordion.module.css'
 
 function AccordionBody() {
     return <div>
@@ -16,7 +17,7 @@ type AccordionTitleType = {
 }
 
 function AccordionTitle(props: AccordionTitleType) {
-    return <h1 onClick={() => props.setCollapsed()}>{props.title}</h1>
+    return <h1 className={s.h1_title} onClick={() => props.setCollapsed()}>{props.title}</h1>
 }
 
 export type StarsNumber = 0 | 1 | 2 | 3 | 4 | 5

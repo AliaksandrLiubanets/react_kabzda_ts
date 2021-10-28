@@ -1,4 +1,5 @@
 import React from 'react'
+import s from './UncontrolledAccordion.module.css'
 
 type AccordionTitleType = {
     title: string
@@ -8,5 +9,5 @@ type AccordionTitleType = {
 
 export function AccordionTitle(props: AccordionTitleType) {
     console.log('AccordionTitle is rendering')
-    return <h1 onClick={props.showAccordionBody}>{props.title}</h1>
+    return <h1 className={s.h1_title} onClick={props.showAccordionBody}>{props.title}</h1>
 }
