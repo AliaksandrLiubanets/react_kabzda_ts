@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import s from './Rating.module.css'
 
 type StarPropsType = {
     selected: boolean
@@ -7,7 +8,7 @@ type StarPropsType = {
 }
 
 function Star(props: StarPropsType) {
-    return <span onClick={() => props.setStarsNumber(props.index + 1)}>{props.selected ? <b>star </b> : "star "}</span>
+    return <span className={s.star} onClick={() => props.setStarsNumber(props.index + 1)}>{props.selected ? <b>star </b> : "star "}</span>
 }
 
 export type StarNumberType = 0 | 1 | 2 | 3 | 4 | 5
