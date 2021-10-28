@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from 'react'
 
 function AccordionBody() {
     console.log('AccordionBody is rendering')
@@ -13,12 +13,14 @@ function AccordionBody() {
 
 type AccordionTitleType = {
     title: string
+    setCollapsed: () =>  void
 }
 
 function AccordionTitle(props: AccordionTitleType) {
-    console.log('AccordionTitle is rendering')
-    return <h1>{props.title}</h1>
+    return <h1 onClick={() => props.setCollapsed()}>{props.title}</h1>
 }
+
+export type StarsNumber = 0 | 1 | 2 | 3 | 4 | 5
 
 type AccordionPropsType = {
     title: string
@@ -26,10 +28,10 @@ type AccordionPropsType = {
 }
 
 function Accordion(props: AccordionPropsType) {
-    console.log('Accordion is rendering')
+    const [collapsed, setCollapsed] = useState<boolean>(props.collapsed)
         return <div>
-            <AccordionTitle title={props.title}/>
-            { !props.collapsed &&  <AccordionBody />}
+            <AccordionTitle setCollapsed={ () => setCollapsed(!collapsed)} title={props.title}/>
+            { !collapsed &&  <AccordionBody />}
         </div>
 }
 

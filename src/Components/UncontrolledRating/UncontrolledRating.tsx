@@ -45,8 +45,8 @@ const UncontrolledRating = () => {
     const blockStyle = {margin: '10px 0 10px 0'}
     return <div style={blockStyle}>
         {starsElements}
-        {/*<button onClick={() => setStars(--stars)}> -Star</button>*/}
-        {/*<button onClick={() => setStars(++stars)}> +Star</button>*/}
+        <button onClick={() => setStars(--stars)}> -Star</button>
+        <button onClick={() => setStars(++stars)}> +Star</button>
     </div>
 }
 

@@ -4,6 +4,7 @@ import {OnOff} from './Components/onOff/OnOff'
 import UncontrolledAccordion from './Components/UncontrolledAccordion/UncontrolledAccordion'
 import UncontrolledRating from './Components/UncontrolledRating/UncontrolledRating'
 import Rating from './Components/Rating/Rating'
+import Accordion from './Components/Accordion/Accordion'
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     {/*<AppTitle title={'My Friends'}/>*/}
     {/* eslint-disable-next-line react/jsx-no-undef */}
     <UncontrolledAccordion title={'Menu'}  />
-    <UncontrolledAccordion title={'Users'} />
+    <Accordion title={'Users'} collapsed={true}/>
     <UncontrolledRating />
     <UncontrolledRating />
 
