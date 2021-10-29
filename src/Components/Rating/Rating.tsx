@@ -8,7 +8,9 @@ type StarPropsType = {
 }
 
 function Star(props: StarPropsType) {
-    return <span className={s.star} onClick={() => props.setStarsNumber(props.index + 1)}>{props.selected ? <b>star </b> : "star "}</span>
+    const changeStarsNum = () => props.setStarsNumber(props.index + 1)
+
+    return <span className={s.star} onClick={changeStarsNum}>{props.selected ? <b>star </b> : "star "}</span>
 }
 
 export type StarNumberType = 0 | 1 | 2 | 3 | 4 | 5
@@ -20,9 +22,7 @@ type PropsRatingType = {
 function Rating (props: PropsRatingType) {
     let starsArray = []
     const [stars, setStars] = useState<number>(props.stars)
-    const setStarsNumber = (starsNum: number) => {
-        setStars(starsNum)
-    }
+    const setStarsNumber = (starsNum: number) => setStars(starsNum)
     let count = stars
     for (let i = 0; i < 5; i++) {
         if (count > 0) {
