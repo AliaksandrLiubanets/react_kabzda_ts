@@ -11,15 +11,10 @@ import {OnOff} from './Components/OnOff/OnOff'
 function App() {
   console.log('App rendering')
   return <div className="App">
-    {/*<AppTitle title={'This is App Component'}/>*/}
-    {/*<AppTitle title={'My Friends'}/>*/}
-    {/* eslint-disable-next-line react/jsx-no-undef */}
     <UncontrolledAccordion title={'Menu'}  />
     <Accordion title={'Users'} collapsed={true}/>
     <UncontrolledRating />
     <Rating stars={3}/>
-    {/*<Rating stars={4}/>*/}
-    {/*<Rating stars={5}/>*/}
     <UncontrolledOnOff  />
     <OnOff isToggle={true}/>
   </div>
