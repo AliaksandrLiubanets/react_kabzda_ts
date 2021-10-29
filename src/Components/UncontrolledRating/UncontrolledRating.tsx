@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import s from './UncontrolledRating.module.css'
 import yellow_star from '../../assets/yellow_star.png'
 import white_star from '../../assets/white_star.png'
 
@@ -26,6 +27,8 @@ const UncontrolledRating = () => {
     let starsArray = []
 
     let [stars, setStars] = useState<number>(0)
+    const minusStar = () =>  setStars(--stars)
+    const plusStar = () =>  setStars(++stars)
 
     let count = stars
     for (let i = 0; i < 5; i++) {
@@ -44,8 +47,8 @@ const UncontrolledRating = () => {
     const blockStyle = {margin: '10px 0 10px 0'}
     return <div style={blockStyle}>
         {starsElements}
-        <button onClick={() => setStars(--stars)}> -Star</button>
-        <button onClick={() => setStars(++stars)}> +Star</button>
+        <button className={s.minus_button} onClick={minusStar}> -</button>
+        <button className={s.plus_button} onClick={plusStar}> +</button>
     </div>
 }
 

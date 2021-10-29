@@ -1,0 +1,18 @@
+.minus_button, .plus_button {
+    background-color: #f1f1f1;
+    border: 1px solid #b2b2b2;
+    border-radius: 2px;
+    width: 30px;
+    height: 22px;
+    margin-left: 1px;
+    text-align: left;
+    background-image: url("../../assets/yellow_star.png");
+    background-repeat: no-repeat;
+    background-position: 13px 3px;
+    background-size: 12px 12px;
+}
+
+.minus_button {
+    background-image: url("../../assets/white_star.png");
+}
+
