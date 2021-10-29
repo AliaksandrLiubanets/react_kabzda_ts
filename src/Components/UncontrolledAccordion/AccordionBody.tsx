@@ -1,5 +1,6 @@
 import React from 'react'
-import s from './UncontrolledAccordion.module.css'
+import s from '../UncontrolledAccordion/UncontrolledAccordion.module.css'
+
 
 export function AccordionBody() {
     console.log('AccordionBody is rendering')

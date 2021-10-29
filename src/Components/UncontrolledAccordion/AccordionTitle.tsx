@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './UncontrolledAccordion.module.css'
+import s from '../UncontrolledAccordion/UncontrolledAccordion.module.css'
 
 type AccordionTitleType = {
     title: string
