@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-import {OnOff} from './Components/onOff/OnOff'
+import {UncontrolledOnOff} from './Components/UncontrolledOnOff/UncontrolledOnOff'
 import UncontrolledAccordion from './Components/UncontrolledAccordion/UncontrolledAccordion'
 import UncontrolledRating from './Components/UncontrolledRating/UncontrolledRating'
 import Rating from './Components/Rating/Rating'
@@ -21,8 +21,8 @@ function App() {
     <Rating stars={3}/>
     {/*<Rating stars={4}/>*/}
     {/*<Rating stars={5}/>*/}
-    <OnOff  />
-    <OnOff  />
+    <UncontrolledOnOff  />
+    <UncontrolledOnOff  />
   </div>
 }
 export default App

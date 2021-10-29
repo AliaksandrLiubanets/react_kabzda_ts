@@ -1,11 +1,7 @@
 import React, {useState} from 'react'
 import s from './OnOff.module.css'
 
-type OnOffPropsType = {
-    // isToggle: boolean
-}
-
-export function OnOff() {
+export function UncontrolledOnOff() {
 
     let [isToggle, setToggle] = useState(false)
 
