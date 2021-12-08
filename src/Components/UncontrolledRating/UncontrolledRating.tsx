@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import s from './UncontrolledRating.module.css'
 import yellow_star from '../../assets/yellow_star.png'
 import white_star from '../../assets/white_star.png'
+import {StarNumberType} from '../Rating/Rating'
 
 type StarPropsType = {
     selected: boolean
-    index: number
-    setStar: (star: number) => void
+    starNumber: StarNumberType
+    setStar: (star: StarNumberType) => void
 }
 
 function Star(props: StarPropsType) {
@@ -18,35 +19,25 @@ function Star(props: StarPropsType) {
         width: '15px'
     }
 
-    return <div style={starStyle} onClick={() => props.setStar(props.index)}>
+    return <div style={starStyle} onClick={() => props.setStar(props.starNumber)}>
         <img style={imageStyle} src={props.selected ? yellow_star : white_star} alt={''}/>
     </div>
 }
 
 const UncontrolledRating = () => {
-    let starsArray = []
 
-    let [stars, setStars] = useState<number>(0)
-    const minusStar = () =>  setStars(--stars)
-    const plusStar = () =>  setStars(++stars)
-
-    let count = stars
-    for (let i = 0; i < 5; i++) {
-        if (count > 0) {
-            starsArray.push(1)
-            count--
-        } else {
-            starsArray.push(0)
-        }
-    }
-
-    let starsElements = starsArray.map((number, index) => number === 1
-        ? <Star key={index} selected={true} setStar={setStars} index={index + 1}/>
-        : <Star key={index} selected={false} setStar={setStars} index={index + 1}/>)
+    let [stars, setStars] = useState<StarNumberType>(0)
+    const minusStar = () =>  setStars(stars -= 1)
+    const plusStar = () =>  setStars(stars += 1)
 
     const blockStyle = {margin: '10px 0 10px 0'}
+
     return <div style={blockStyle}>
-        {starsElements}
+        <Star selected={stars > 0} setStar={setStars} starNumber={1}/>
+        <Star selected={stars > 1} setStar={setStars} starNumber={2}/>
+        <Star selected={stars > 2} setStar={setStars} starNumber={3}/>
+        <Star selected={stars > 3} setStar={setStars} starNumber={4}/>
+        <Star selected={stars > 4} setStar={setStars} starNumber={5}/>
         <button className={s.minus_button} onClick={minusStar}> -</button>
         <button className={s.plus_button} onClick={plusStar}> +</button>
     </div>

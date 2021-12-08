@@ -10,7 +10,7 @@ function Star(props: StarPropsType) {
     return <span className={s.star} >{props.selected ? <b>star </b> : "star "}</span>
 }
 
-export type StarNumberType = 0 | 1 | 2 | 3 | 4 | 5
+export type StarNumberType = 0 | 1 | 2 | 3 | 4 | 5 | number
 
 export type PropsRatingType = {
     stars: StarNumberType
