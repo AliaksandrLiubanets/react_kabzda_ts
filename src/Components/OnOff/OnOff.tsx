@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
+import React from 'react'
 import s from './OnOff.module.css'
 
 type OnOffPropsType = {
     isToggle: boolean
+    setIsToggle: (isToggle: boolean) => void
 }
 
-export function OnOff(props: OnOffPropsType) {
+export function OnOff({isToggle, setIsToggle}: OnOffPropsType) {
 
-    let [isToggle, setToggle] = useState(props.isToggle)
-    const onClicked = () => setToggle(true)
-    const offClicked = () => setToggle(false)
+        const onClicked = () => setIsToggle(true)
+        const offClicked = () => setIsToggle(false)
 
         return <div className={s.onOff}>
             <div className={isToggle ? s.on : s.empty} onClick={onClicked}>on</div>

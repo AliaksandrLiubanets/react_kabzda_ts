@@ -11,6 +11,7 @@ import {OnOff} from './Components/OnOff/OnOff'
 function App() {
 
   const [ratingValue, setRatingValue] = useState<StarNumberType>(3)
+  const [isToggle, setIsToggle] = useState<boolean>(true)
 
   return <div className="App">
     <UncontrolledAccordion title={'Menu'}  />
@@ -18,7 +19,7 @@ function App() {
     <UncontrolledRating />
     <Rating stars={ratingValue} setRatingValue={setRatingValue}/>
     <UncontrolledOnOff  />
-    <OnOff isToggle={true}/>
+    <OnOff isToggle={isToggle} setIsToggle={setIsToggle}/>
   </div>
 }
 export default App
