@@ -59,22 +59,19 @@
 // };
 
 
-import React from 'react'
+import React, {useState} from 'react'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 
-import Rating from './Rating'
+import Rating, {StarNumberType} from './Rating'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'Rating',
     component: Rating
 } as ComponentMeta<typeof Rating>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Rating> = (args) => <Rating {...args} />;
 
 export const EmptyRating = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 EmptyRating.args = {
     stars: 0
 };
@@ -103,3 +100,14 @@ export const Rating5 = Template.bind({});
 Rating5.args = {
     stars: 5
 }
+
+// const ModeChanging: ComponentStory<typeof Rating> = (args) => {
+//     const [stars, setStars] = useState<StarNumberType>(0)
+//     return <Rating {...args} stars={stars} setRatingValue={setStars}/>
+// }
+//
+// export const UncontrolledRating = ModeChanging.bind({})
+
+// UncontrolledRating.args = {
+//     stars: 0
+// }
