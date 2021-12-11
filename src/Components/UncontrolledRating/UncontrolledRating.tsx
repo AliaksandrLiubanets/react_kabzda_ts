@@ -19,7 +19,9 @@ function Star(props: StarPropsType) {
         width: '15px'
     }
 
-    return <div style={starStyle} onClick={() => props.setStar(props.starNumber)}>
+    const setStars = () => props.setStar(props.starNumber)
+
+    return <div style={starStyle} onClick={setStars}>
         <img style={imageStyle} src={props.selected ? yellow_star : white_star} alt={''}/>
     </div>
 }
