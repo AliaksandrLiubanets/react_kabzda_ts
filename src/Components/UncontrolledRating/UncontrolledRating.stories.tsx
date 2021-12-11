@@ -2,7 +2,6 @@ import React from 'react'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import UncontrolledRating from './UncontrolledRating'
 
-
 export default {
     title: 'UncontrolledRating',
     component: UncontrolledRating

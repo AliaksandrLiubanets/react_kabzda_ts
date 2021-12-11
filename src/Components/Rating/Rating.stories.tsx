@@ -101,13 +101,13 @@ Rating5.args = {
     stars: 5
 }
 
-// const ModeChanging: ComponentStory<typeof Rating> = (args) => {
-//     const [stars, setStars] = useState<StarNumberType>(0)
-//     return <Rating {...args} stars={stars} setRatingValue={setStars}/>
-// }
-//
-// export const UncontrolledRating = ModeChanging.bind({})
+const ModeChanging: ComponentStory<typeof Rating> = (args) => {
+    const [stars, setStars] = useState<StarNumberType>(0)
+    return <Rating {...args} stars={stars} setRatingValue={setStars}/>
+}
 
-// UncontrolledRating.args = {
-//     stars: 0
-// }
+export const ChangingRating = ModeChanging.bind({})
+
+ChangingRating.args = {
+    stars: 0
+}

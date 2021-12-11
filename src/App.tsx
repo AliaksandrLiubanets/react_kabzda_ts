@@ -1,20 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react'
 import './App.css'
 import {UncontrolledOnOff} from './Components/UncontrolledOnOff/UncontrolledOnOff'
 import UncontrolledAccordion from './Components/UncontrolledAccordion/UncontrolledAccordion'
 import UncontrolledRating from './Components/UncontrolledRating/UncontrolledRating'
-import Rating from './Components/Rating/Rating'
+import Rating, {StarNumberType} from './Components/Rating/Rating'
 import Accordion from './Components/Accordion/Accordion'
 import {OnOff} from './Components/OnOff/OnOff'
 
 
 function App() {
-  console.log('App rendering')
+
+  const [ratingValue, setRatingValue] = useState<StarNumberType>(3)
+
   return <div className="App">
     <UncontrolledAccordion title={'Menu'}  />
     <Accordion title={'Users'} collapsed={true}/>
     <UncontrolledRating />
-    <Rating stars={3}/>
+    <Rating stars={ratingValue} setRatingValue={setRatingValue}/>
     <UncontrolledOnOff  />
     <OnOff isToggle={true}/>
   </div>
