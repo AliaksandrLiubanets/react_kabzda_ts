@@ -2,6 +2,9 @@ import React from 'react'
 import s from './OnOff.module.css'
 
 type OnOffPropsType = {
+    /**
+     * Controlled property from state App
+     */
     isToggle: boolean
     setIsToggle: (isToggle: boolean) => void
 }
