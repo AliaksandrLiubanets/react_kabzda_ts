@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 import s from '../OnOff/OnOff.module.css'
 
-type UncontrolledOnOffType = {
+export  type UncontrolledOnOffType = {
     // onChange?: (isToggle: boolean) => void
+    defaultOn?: boolean
 }
 
-export function UncontrolledOnOff({}: UncontrolledOnOffType) {
+export function UncontrolledOnOff({defaultOn}: UncontrolledOnOffType) {
 
-    let [isToggle, setToggle] = useState(false)
+    let [isToggle, setToggle] = useState(defaultOn ? defaultOn : false)
     const setOn = () => {
         setToggle(true)
         // onChange && onChange(true)
