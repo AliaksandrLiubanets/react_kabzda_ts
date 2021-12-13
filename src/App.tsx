@@ -19,7 +19,7 @@ function App() {
     <Accordion title={'Users'} collapsed={collapsed} setCollapsed={setCollapsed}/>
     <UncontrolledRating />
     <Rating stars={ratingValue} setRatingValue={setRatingValue}/>
-    <UncontrolledOnOff  />
+    <UncontrolledOnOff />
     <OnOff isToggle={isToggle} setIsToggle={setIsToggle}/>
   </div>
 }
