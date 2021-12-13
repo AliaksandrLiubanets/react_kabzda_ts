@@ -5,7 +5,10 @@ import {action} from '@storybook/addon-actions'
 
 export default {
     title: 'Accordion/Controlled',
-    component: Accordion
+    component: Accordion,
+    argTypes: {
+        color: {control: 'color'},
+    },
 } as ComponentMeta<typeof Accordion>;
 
 const callback = action('Accordion is changing')
@@ -28,7 +31,6 @@ Uncollapsed.args = {
         {id: 3, title: 'Gagarin', value: 3},
         {id: 4, title: 'Pushkin', value: 4},
     ],
-
 };
 
 export const Collapsed = Template.bind({});
