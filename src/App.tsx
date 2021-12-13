@@ -12,10 +12,11 @@ function App() {
 
   const [ratingValue, setRatingValue] = useState<StarNumberType>(3)
   const [isToggle, setIsToggle] = useState<boolean>(true)
+  const [collapsed, setCollapsed] = useState<boolean>(true)
 
   return <div className="App">
     <UncontrolledAccordion title={'Menu'}  />
-    <Accordion title={'Users'} collapsed={true}/>
+    <Accordion title={'Users'} collapsed={collapsed} setCollapsed={setCollapsed}/>
     <UncontrolledRating />
     <Rating stars={ratingValue} setRatingValue={setRatingValue}/>
     <UncontrolledOnOff  />

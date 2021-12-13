@@ -25,12 +25,15 @@ export type StarsNumber = 0 | 1 | 2 | 3 | 4 | 5
 type AccordionPropsType = {
     title: string
     collapsed: boolean
+    setCollapsed: (collapsed: boolean) => void
 }
 
-function Accordion(props: AccordionPropsType) {
-    const [collapsed, setCollapsed] = useState<boolean>(props.collapsed)
+function Accordion({title, collapsed, setCollapsed}: AccordionPropsType) {
+
+    const changeCollapsed =  () => setCollapsed(!collapsed)
+
         return <div>
-            <AccordionTitle setCollapsed={ () => setCollapsed(!collapsed)} title={props.title}/>
+            <AccordionTitle setCollapsed={changeCollapsed} title={title}/>
             { !collapsed &&  <AccordionBody />}
         </div>
 }
