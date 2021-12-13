@@ -21,10 +21,10 @@ Collapsed.args = {
     title: 'Menu',
 };
 
-// export const ChangeMode: ComponentStory<typeof OnOff> = (args) => {
-//     const [isToggle, setIsToggle] = useState<boolean>(false)
-//     return <OnOff isToggle={isToggle} setIsToggle={setIsToggle}/>
-// }
+export const ChangeMode: ComponentStory<typeof Accordion> = (args) => {
+    const [collapsed, setCollads] = useState<boolean>(false)
+    return <Accordion collapsed={collapsed} setCollapsed={setCollads} title={'Menu'}/>
+}
 
 // export const ChangingOnOff = ChangeMode.bind({})
 // ChangingOnOff.args = {
