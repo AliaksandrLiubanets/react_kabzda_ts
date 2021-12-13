@@ -26,3 +26,5 @@ export const UncontrolledInputWithRef = () => {
   return <div><input ref={inputRef}/> <button onClick={ save }>save value</button> - actual value: {value}</div>
 }
 
+export const ControlledFixedInput = () => <input value={'it-kaamasutra'}/>
+
