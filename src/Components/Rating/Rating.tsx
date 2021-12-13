@@ -17,7 +17,14 @@ function Star(props: StarPropsType) {
 export type StarNumberType = 0 | 1 | 2 | 3 | 4 | 5 | number
 
 export type PropsRatingType = {
+    /**
+     * Controlled stars from App state
+     */
     stars: StarNumberType
+    /**
+     * Callback for changing stars state in App
+     * @param stars
+     */
     setRatingValue: (stars: StarNumberType) => void
 }
 

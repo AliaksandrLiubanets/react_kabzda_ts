@@ -63,51 +63,60 @@ import React, {useState} from 'react'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 
 import Rating, {StarNumberType} from './Rating'
+import {action} from '@storybook/addon-actions'
 
 export default {
-    title: 'Rating',
+    title: 'Rating/Controlled',
     component: Rating
 } as ComponentMeta<typeof Rating>;
+
+const callback = action('Click on star')
 
 const Template: ComponentStory<typeof Rating> = (args) => <Rating {...args} />;
 
 export const EmptyRating = Template.bind({});
 EmptyRating.args = {
-    stars: 0
+    stars: 0,
+    setRatingValue: callback,
 };
 
 export const Rating1 = Template.bind({});
 Rating1.args = {
-    stars: 1
+    stars: 1,
+    setRatingValue: callback,
 };
 
 export const Rating2 = Template.bind({});
 Rating2.args = {
-    stars: 2
+    stars: 2,
+    setRatingValue: callback,
 };
 
 export const Rating3 = Template.bind({});
 Rating3.args = {
-    stars: 3
+    stars: 3,
+    setRatingValue: callback,
 };
 
 export const Rating4 = Template.bind({});
 Rating4.args = {
-    stars: 4
+    stars: 4,
+    setRatingValue: callback,
 };
 
 export const Rating5 = Template.bind({});
 Rating5.args = {
-    stars: 5
+    stars: 5,
+    setRatingValue: callback,
 }
 
-const ModeChanging: ComponentStory<typeof Rating> = (args) => {
+export const ChangingMode: ComponentStory<typeof Rating> = (args) => {
     const [stars, setStars] = useState<StarNumberType>(0)
     return <Rating {...args} stars={stars} setRatingValue={setStars}/>
 }
 
-export const ChangingRating = ModeChanging.bind({})
+// export const ChangingRating = ModeChanging.bind({})
 
-ChangingRating.args = {
-    stars: 0
-}
+// ChangingRating.args = {
+//     stars: 0
+// }
