@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import s from '../UncontrolledAccordion/UncontrolledAccordion.module.css'
 
 function AccordionBody() {
@@ -25,12 +25,12 @@ export type StarsNumber = 0 | 1 | 2 | 3 | 4 | 5
 type AccordionPropsType = {
     title: string
     collapsed: boolean
-    setCollapsed: (collapsed: boolean) => void
+    onChange: (collapsed: boolean) => void
 }
 
-function Accordion({title, collapsed, setCollapsed}: AccordionPropsType) {
+function Accordion({title, collapsed, onChange}: AccordionPropsType) {
 
-    const changeCollapsed =  () => setCollapsed(!collapsed)
+    const changeCollapsed =  () => onChange(!collapsed)
 
         return <div>
             <AccordionTitle setCollapsed={changeCollapsed} title={title}/>

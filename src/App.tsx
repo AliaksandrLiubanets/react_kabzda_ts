@@ -7,7 +7,6 @@ import Rating, {StarNumberType} from './Components/Rating/Rating'
 import Accordion from './Components/Accordion/Accordion'
 import {OnOff} from './Components/OnOff/OnOff'
 
-
 function App() {
 
   const [ratingValue, setRatingValue] = useState<StarNumberType>(3)
@@ -16,10 +15,10 @@ function App() {
 
   return <div className="App">
     <UncontrolledAccordion title={'Menu'}  />
-    <Accordion title={'Users'} collapsed={collapsed} setCollapsed={setCollapsed}/>
+    <Accordion title={'Users'} collapsed={collapsed} onChange={setCollapsed}/>
     <UncontrolledRating />
     <Rating stars={ratingValue} setRatingValue={setRatingValue}/>
-    <UncontrolledOnOff defaultOn={true}/>
+    <UncontrolledOnOff defaultOn={true} />
     <OnOff isToggle={isToggle} setIsToggle={setIsToggle}/>
   </div>
 }
