@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import {AccordionBody} from './AccordionBody'
 import {AccordionTitle} from './AccordionTitle'
 
-type AccordionPropsType = {
+type UncontrolledAccordionPropsType = {
     title: string
 }
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
     let [collapsed, setCollapsed] = useState<boolean>(true)
     const showAccordionBody = () => {setCollapsed(!collapsed)}
         return <div>
