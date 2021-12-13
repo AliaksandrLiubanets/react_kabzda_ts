@@ -3,7 +3,7 @@ import {ComponentMeta, ComponentStory} from '@storybook/react'
 import UncontrolledAccordion from './UncontrolledAccordion'
 
 export default {
-    title: 'UncontrolledAccordion',
+    title: 'Accordion/Uncontrolled',
     component: UncontrolledAccordion
 } as ComponentMeta<typeof UncontrolledAccordion>;
 

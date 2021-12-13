@@ -39,6 +39,9 @@ type AccordionPropsType = {
     title: string
     collapsed: boolean
     onChange: (collapsed: boolean) => void
+    /**
+     * Items should be rendered if thay are in props
+     */
     items?: Array<UsersType>
 }
 
