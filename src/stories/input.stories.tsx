@@ -26,5 +26,14 @@ export const UncontrolledInputWithRef = () => {
   return <div><input ref={inputRef}/> <button onClick={ save }>save value</button> - actual value: {value}</div>
 }
 
+export const ControlledInput = () => {
+  const [parentValue, setParentValue] = useState('')
+  const setValue = (e: ChangeEvent<HTMLInputElement>) => setParentValue(e.currentTarget.value)
+
+  return <input value={parentValue} onChange={ setValue }/>
+}
+
+
+
 export const ControlledFixedInput = () => <input value={'it-kaamasutra'}/>
 
