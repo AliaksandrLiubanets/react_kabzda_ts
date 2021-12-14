@@ -2,31 +2,23 @@ import React from 'react'
 import s from '../UncontrolledAccordion/UncontrolledAccordion.module.css'
 import {UsersType} from '../../App'
 
-type AcccordionPropsType = {
-    items: Array<UsersType> | null
+type AcccordionBodyPropsType = {
+    items: Array<UsersType>
+    onClick: (id: number) => void
 }
 
-function AccordionBody({items}: AcccordionPropsType) {
-    const itemElements = items?.map(item => <li key={item.id}>{item.title}: {item.value}</li>)
+function AccordionBody({items, onClick}: AcccordionBodyPropsType) {
+    const itemElements = items.map(item => <li onClick={() => onClick(item.id)} key={item.id}>{item.title}</li>)
     return <div className={s.accodrion_body}>
-
         <ul>
-            {
-                items
-                    ? itemElements
-                    : <>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </>
-            }
+            {itemElements}
         </ul>
     </div>
 }
 
 type AccordionTitleType = {
     title: string
-    setCollapsed: () =>  void
+    setCollapsed: () => void
     color?: string
 }
 
@@ -47,18 +39,22 @@ type AccordionPropsType = {
     /**
      * Items should be rendered if thay are in props
      */
-    items?: Array<UsersType>
     color?: string
+    /**
+     * Array of users
+     */
+    items: Array<UsersType>
+    onClick: (id: number) => void
 }
 
-function Accordion({title, collapsed, onChange, items, color}: AccordionPropsType) {
+function Accordion({title, collapsed, onChange, items, onClick, color}: AccordionPropsType) {
 
-    const changeCollapsed =  () => onChange(!collapsed)
+    const changeCollapsed = () => onChange(!collapsed)
 
-        return <div>
-            <AccordionTitle setCollapsed={changeCollapsed} title={title} color={color}/>
-            { !collapsed &&  <AccordionBody items={items ? items : null}/>}
-        </div>
+    return <div>
+        <AccordionTitle setCollapsed={changeCollapsed} title={title} color={color}/>
+        {!collapsed && <AccordionBody onClick={onClick} items={items}/>}
+    </div>
 }
 
-export default Accordion;
+export default Accordion

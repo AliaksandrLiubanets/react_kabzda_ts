@@ -6,8 +6,6 @@ import UncontrolledRating from './Components/UncontrolledRating/UncontrolledRati
 import Rating, {StarNumberType} from './Components/Rating/Rating'
 import Accordion from './Components/Accordion/Accordion'
 import {OnOff} from './Components/OnOff/OnOff'
-import * as stream from 'stream'
-import {stringify} from 'querystring'
 
 export type UsersType = {
   id: number
@@ -15,23 +13,29 @@ export type UsersType = {
   value: number
 }
 
-function App() {
+export const users: Array<UsersType> = [
+  {id: 1, title: 'Dimych', value: 1},
+  {id: 2, title: 'Lenin', value: 2},
+  {id: 3, title: 'Gagarin', value: 3},
+  {id: 4, title: 'Pushkin', value: 4}
+]
 
-  const users: Array<UsersType> = [
-      {id: 1, title: 'Dimych', value: 1},
-      {id: 2, title: 'Lenin', value: 2},
-      {id: 3, title: 'Gagarin', value: 3},
-      {id: 4, title: 'Pushkin', value: 4},
-  ]
+function App() {
 
   const [ratingValue, setRatingValue] = useState<StarNumberType>(3)
   const [isToggle, setIsToggle] = useState<boolean>(true)
   const [collapsed, setCollapsed] = useState<boolean>(true)
+  const [user, setUser] = useState<UsersType>(users[1])
+
+  const onClickUser = (id: number) => {
+    const clickedUser = users.find(user => user.id === id)
+    clickedUser && setUser(clickedUser)
+  }
 
   return <div className="App">
     <UncontrolledAccordion title={'Menu'}  />
     {/*<Accordion title={'Menu'} collapsed={collapsed} onChange={setCollapsed} />*/}
-    <Accordion title={'Users'} collapsed={collapsed} onChange={setCollapsed} items={users}/>
+    <Accordion title={'Users'} collapsed={collapsed} onChange={setCollapsed} items={users} onClick={onClickUser}/>
     <UncontrolledRating />
     <Rating stars={ratingValue} setRatingValue={setRatingValue}/>
     <UncontrolledOnOff defaultOn={true} />
