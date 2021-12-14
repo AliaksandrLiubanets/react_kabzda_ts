@@ -1,5 +1,4 @@
 import React, {ChangeEvent, useRef, useState} from 'react'
-import {action} from '@storybook/addon-actions'
 
 export default {
   title: 'input',
@@ -38,10 +37,22 @@ export const ControlledCheckbox = () => {
   const [parentValue, setParentValue] = useState(true)
   const setValue = (e: ChangeEvent<HTMLInputElement>) =>  setParentValue(e.currentTarget.checked)
 
-  return <input type='checkbox' checked={parentValue} onChange={ action('checkbox wants to change') }/>
+  return <input type='checkbox' checked={parentValue} onChange={ setValue }/>
 }
 
+export const ControlledSelect = () => {
+  const [parentValue, setParentValue] = useState('2')
+  const setValue = (e: ChangeEvent<HTMLSelectElement>) => {
+    setParentValue(e.currentTarget.value)
+  }
 
+  return <select value={parentValue} onChange={ setValue }>
+    <option>none</option>
+    <option value='1'>Mockow</option>
+    <option value='2'>Minsk</option>
+    <option value='3'>Kiev</option>
+  </select>
+}
 
 export const ControlledFixedInput = () => <input value={'it-kaamasutra'}/>
 
