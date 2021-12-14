@@ -27,10 +27,10 @@ Uncollapsed.args = {
     ...callbackProps,
     collapsed: false,
     items: [
-        {id: 1, title: 'Dimych', value: 1},
-        {id: 2, title: 'Lenin', value: 2},
-        {id: 3, title: 'Gagarin', value: 3},
-        {id: 4, title: 'Pushkin', value: 4},
+        {id: 1, title: 'Dimych', value: "1"},
+        {id: 2, title: 'Lenin', value: "2"},
+        {id: 3, title: 'Gagarin', value: "3"},
+        {id: 4, title: 'Pushkin', value: "4"},
     ],
 }
 
@@ -48,9 +48,9 @@ export const ChangingMode: ComponentStory<typeof Accordion> = () => {
                       title={'Menu'}
                       onClick={callbackClick}
                       items={[
-                          {id: 1, title: 'Dimych', value: 1},
-                          {id: 2, title: 'Lenin', value: 2},
-                          {id: 3, title: 'Gagarin', value: 3},
-                          {id: 4, title: 'Pushkin', value: 4}
+                          {id: 1, title: 'Dimych', value: "1"},
+                          {id: 2, title: 'Lenin', value: "2"},
+                          {id: 3, title: 'Gagarin', value: "3"},
+                          {id: 4, title: 'Pushkin', value: "4"}
                       ]}/>
 }

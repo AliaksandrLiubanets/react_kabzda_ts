@@ -1,9 +1,9 @@
 import React from 'react'
 import s from '../UncontrolledAccordion/UncontrolledAccordion.module.css'
-import {UsersType} from '../../App'
+import {ItemsType} from '../../App'
 
 type AcccordionBodyPropsType = {
-    items: Array<UsersType>
+    items: Array<ItemsType>
     onClick: (id: number) => void
 }
 
@@ -43,7 +43,7 @@ type AccordionPropsType = {
     /**
      * Array of users
      */
-    items: Array<UsersType>
+    items: Array<ItemsType>
     onClick: (id: number) => void
 }
 
