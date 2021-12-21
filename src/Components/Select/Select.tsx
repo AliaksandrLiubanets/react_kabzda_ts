@@ -15,6 +15,11 @@ export function Select({items, onChange, value}: SelectRatingType) {
 
     const toggleItems = () => setActive(!active)
 
+    const onItemClick = (value: string) => {
+        onChange(value);
+        toggleItems()
+    }
+
     const selectedItem = items.find(i => i.value === value)
 
     return <>
@@ -24,7 +29,7 @@ export function Select({items, onChange, value}: SelectRatingType) {
                 active
                 && <div className={s.items}>
                     {items.map(item => <div
-                        onClick={() => onChange(item.value)}
+                        onClick={() => {onItemClick(item.value)}}
                         key={item.id}>{item.title}
                     </div>)
                     }
