@@ -23,9 +23,11 @@ export function Select({items, onChange, value}: SelectRatingType) {
             {
                 active
                 && <div className={s.items}>
-                    {items.map(item => <div onClick={() => {onChange(item.value)}}
-                                            key={item.id}>{item.title}
-                    </div>)}
+                    {items.map(item => <div
+                        onClick={() => onChange(item.value)}
+                        key={item.id}>{item.title}
+                    </div>)
+                    }
                 </div>
             }
         </div>
