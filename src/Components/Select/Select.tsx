@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {ItemsType} from '../../App'
+import s from './Select.module.css'
 
 
 export type SelectRatingType = {
@@ -10,18 +11,25 @@ export type SelectRatingType = {
 
 export function Select({items, onChange, value}: SelectRatingType) {
 
-    // const setValue = (e: ChangeEvent<HTMLSelectElement>) => {
-    //     onChange(e.currentTarget.value)
-    // }
+    const [active, setActive] = useState(false)
+
+    const toggleItems = () => setActive(!active)
+
     const selectedItem = items.find(i => i.value === value)
 
-    return <div>
-        <select onChange={() => {}} value={value}>
-        {items.map(item => <option key={item.id} value={item.value}>{item.title}</option>)}
-    </select>
-        <h3>{selectedItem && selectedItem.title}</h3>
-        {items.map(item => <div key={item.id} >{item.title}</div>)}
-    </div>
+    return <>
+        <div className={s.select}>
+            <span className={s.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</span>
+            {
+                active
+                && <div className={s.items}>
+                    {items.map(item => <div onClick={() => {onChange(item.value)}}
+                                            key={item.id}>{item.title}
+                    </div>)}
+                </div>
+            }
+        </div>
+    </>
 }
 
 export default Select

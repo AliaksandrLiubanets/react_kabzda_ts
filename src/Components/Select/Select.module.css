@@ -1,36 +1,17 @@
-.nav {
-    margin-top: 20px;
-    background-color: #d5e8ec;
-    max-width: 150px;
-    position: relative;
+.select span.main {
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
 }
 
-.name {
-
-}
-
-.elementsItems {
-    position: absolute;
-    bottom: -85px;
-    left: 0;
+.items {
     /*display: none;*/
+    padding: 5px;
+    position: absolute;
+    border: 1px solid black;
 }
 
-.nav div > div {
-    display: block;
-    background-color: rgb(230, 248, 248);
-    padding: 10px 15px;
-    border: 1px solid rgba(133, 220, 234, 0.91);
-    color: black;
-    transition: 0.4s;
-    max-width: 150px;
-
-}
-
-.nav div > div:hover {
-    background-color: rgb(241, 216, 216);
-    color: rgb(236, 236, 236);
-    box-shadow: 2px 2px 5px black;
-    transition: 0.4s;
-    cursor: pointer;
-}
+/*.select.active .items {*/
+/*    display: block;*/
+/*}*/
