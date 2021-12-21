@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, KeyboardEvent, useEffect} from 'react'
 import {ItemsType} from '../../App'
 import s from './Select.module.css'
 
@@ -12,7 +12,7 @@ export type SelectRatingType = {
 export function Select({items, onChange, value}: SelectRatingType) {
 
     const [active, setActive] = useState(false)
-    const [hoveredItem, setHoveredItem] = useState(value)
+    const [hoveredItemValue, setHoveredItemValue] = useState(value)
 
     const toggleItems = () => setActive(!active)
 
@@ -22,16 +22,37 @@ export function Select({items, onChange, value}: SelectRatingType) {
     }
 
     const selectedItem = items.find(i => i.value === value)
+    const hoveredItem = items.find(i => i.value === hoveredItemValue)
+
+    useEffect(() => {
+        setHoveredItemValue(value)
+    }, [value])
+
+    const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
+        if (e.key ==='ArrowDown' || e.key ==='ArrowUp'){
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].value === hoveredItemValue) {
+                    const pretendentElement = e.key ==='ArrowDown'
+                        ? items[i + 1]
+                        : items[i - 1]
+                    if (pretendentElement) {
+                        onChange(pretendentElement.value)
+                        break
+                    }
+                }
+            }
+        }
+    }
 
     return <>
-        <div className={s.select}>
+        <div className={s.select} tabIndex={0} onKeyUp={onKeyUp}>
             <span className={s.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</span>
             {
                 active
                 && <div className={s.items}>
                     {items.map(item => <div
-                        className={s.item + " " + (hoveredItem === item.value ? s.selected: '')}
-                        onMouseEnter={() => {setHoveredItem(item.value)}}
+                        className={s.item + " " + (hoveredItem === item ? s.selected: '')}
+                        onMouseEnter={() => {setHoveredItemValue(item.value)}}
                         onClick={() => {onItemClick(item.value)}}
                         key={item.id}>{item.title}
                     </div>)

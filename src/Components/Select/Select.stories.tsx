@@ -8,7 +8,7 @@ export default {
     component: Select
 } as ComponentMeta<typeof Select>
 
-const callback = action('Click on box')
+// const callback = action('Click on box')
 
 const Template: ComponentStory<typeof Select> = (args) => {
     return <Select {...args} />
