@@ -2,7 +2,7 @@ import {reducerUncontrolledAccordion, StateType, TOGGLE_COLLAPSED} from './reduc
 
 let state: StateType
 
-test('Accordion shoul collapse', () => {
+test('Accordion should collapse', () => {
     state = {
         isCollapsed: false
     }
