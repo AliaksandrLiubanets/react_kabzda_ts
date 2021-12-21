@@ -9,7 +9,9 @@ const initialState = {
     isCollapsed: false
 }
 
-export type StateType = typeof initialState
+export type StateType = {
+    isCollapsed: boolean
+}
 
 export const reducerUncontrolledAccordion = (state: StateType = initialState, action: ActionsType): StateType => {
     switch (action.type) {

@@ -7,7 +7,7 @@ test('Accordion should collapse', () => {
         isCollapsed: false
     }
 
-    reducerUncontrolledAccordion(state, {type: TOGGLE_COLLAPSED})
+    const newState = reducerUncontrolledAccordion(state, {type: TOGGLE_COLLAPSED})
 
-    expect(state.isCollapsed).toBe(true)
+    expect(newState.isCollapsed).toBe(true)
 })
