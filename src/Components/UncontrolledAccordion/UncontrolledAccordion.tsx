@@ -8,15 +8,15 @@ type UncontrolledAccordionPropsType = {
 }
 
 function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
-    let [collapsed, dispatchToState] = useReducer(reducerUncontrolledAccordion, false)
+    let [collapsed, dispatchToState] = useReducer(reducerUncontrolledAccordion, {isCollapsed: false})
 
     const showAccordionBody = () => {dispatchToState({type: TOGGLE_COLLAPSED})}
 
         return <div>
             <AccordionTitle showAccordionBody={showAccordionBody}
-                            collapsed={collapsed}
+                            collapsed={collapsed.isCollapsed}
                             title={props.title}/>
-            { !collapsed &&  <AccordionBody />}
+            { !collapsed.isCollapsed &&  <AccordionBody />}
         </div>
 }
 

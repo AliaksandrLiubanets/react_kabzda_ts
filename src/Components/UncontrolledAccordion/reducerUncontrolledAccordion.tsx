@@ -5,10 +5,16 @@ type setCollapsedAT = {
 }
 type ActionsType = setCollapsedAT
 
-export const reducerUncontrolledAccordion = (state: boolean, action: ActionsType): boolean => {
+const initialState = {
+    isCollapsed: false
+}
+
+export type StateType = typeof initialState
+
+export const reducerUncontrolledAccordion = (state: StateType = initialState, action: ActionsType): StateType => {
     switch (action.type) {
         case TOGGLE_COLLAPSED:
-            return !state
+            return {...state, isCollapsed: !state.isCollapsed}
         default:
             return state
     }
