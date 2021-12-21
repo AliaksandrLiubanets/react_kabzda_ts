@@ -37,14 +37,18 @@ export function Select({items, onChange, value}: SelectRatingType) {
                         : items[i - 1]
                     if (pretendentElement) {
                         onChange(pretendentElement.value)
-                        break
+                        return
                     }
                 }
+            }
+            if (!selectedItem) {
+                onChange(items[0].value)
             }
         }
         if (e.key === 'Enter' || e.key === 'Escape') {
             setActive(false)
         }
+
     }
 
     return <>
