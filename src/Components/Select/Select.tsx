@@ -12,6 +12,7 @@ export type SelectRatingType = {
 export function Select({items, onChange, value}: SelectRatingType) {
 
     const [active, setActive] = useState(false)
+    const [hoveredItem, setHoveredItem] = useState(value)
 
     const toggleItems = () => setActive(!active)
 
@@ -29,6 +30,8 @@ export function Select({items, onChange, value}: SelectRatingType) {
                 active
                 && <div className={s.items}>
                     {items.map(item => <div
+                        className={s.item + " " + (hoveredItem === item.value ? s.selected: '')}
+                        onMouseEnter={() => {setHoveredItem(item.value)}}
                         onClick={() => {onItemClick(item.value)}}
                         key={item.id}>{item.title}
                     </div>)
