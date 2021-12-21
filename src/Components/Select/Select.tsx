@@ -42,6 +42,9 @@ export function Select({items, onChange, value}: SelectRatingType) {
                 }
             }
         }
+        if (e.key === 'Enter' || e.key === 'Escape') {
+            setActive(false)
+        }
     }
 
     return <>
