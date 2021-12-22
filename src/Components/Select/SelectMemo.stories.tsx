@@ -15,7 +15,8 @@ export const FilteredPopulation: ComponentStory<typeof Select> = () => {
         {id: 3, title: 'Petya', value: '3', city: 'Mogilev', population: 0.28},
         {id: 4, title: 'Sveta', value: '4', city: 'Grodno', population: 0.25},
         {id: 5, title: 'Katya', value: '5', city: 'Novopolock', population: 0.11},
-        {id: 6, title: 'Roma', value: '6', city: 'M.G.', population: 0.03}
+        {id: 6, title: 'Roma', value: '6', city: 'M.G.', population: 0.03},
+        {id: 7, title: 'Viktor', value: '7', city: 'Vitebsk.', population: 0.31}
     ])
 
     const filteredItems = items.filter(item => item.population > 0.3)
