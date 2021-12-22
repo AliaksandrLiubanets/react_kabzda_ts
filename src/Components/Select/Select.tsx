@@ -1,12 +1,12 @@
-import React, {useState, KeyboardEvent, useEffect} from 'react'
-import {ItemsType} from '../../App'
+import React, {KeyboardEvent, useEffect, useState} from 'react'
 import s from './Select.module.css'
 
 
 export type SelectRatingType = {
     value?: any
     onChange: (value: any) => void
-    items: ItemsType[]
+    items: any[]
+    // items: ItemsType[]
 }
 
 export function Select({items, onChange, value}: SelectRatingType) {
@@ -48,7 +48,6 @@ export function Select({items, onChange, value}: SelectRatingType) {
         if (e.key === 'Enter' || e.key === 'Escape') {
             setActive(false)
         }
-
     }
 
     return <>
@@ -61,7 +60,8 @@ export function Select({items, onChange, value}: SelectRatingType) {
                         className={s.item + " " + (hoveredItem === item ? s.selected: '')}
                         onMouseEnter={() => {setHoveredItemValue(item.value)}}
                         onClick={() => {onItemClick(item.value)}}
-                        key={item.id}>{item.title}
+                        key={item.id}>
+                        {item.title}
                     </div>)
                     }
                 </div>
