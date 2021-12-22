@@ -24,9 +24,11 @@ Off.args = {
     setIsToggle: callback,
 };
 
+const OnOffWithMemo = React.memo(OnOff)
+
 export const ChangingMode: ComponentStory<typeof OnOff> = () => {
     const [isToggle, setIsToggle] = useState<boolean>(false)
-    return <OnOff isToggle={isToggle} setIsToggle={setIsToggle}/>
+    return <OnOffWithMemo isToggle={isToggle} setIsToggle={setIsToggle}/>
 }
 
 // export const ChangingOnOff = ChangeMode.bind({})
