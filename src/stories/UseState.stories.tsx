@@ -10,14 +10,12 @@ const generateData = () => {
     return 1234564654111
 }
 
-const val = generateData()
-
 export const Example1 = () => {
     console.log('Example1')
 
     const initialValue = useMemo(generateData, [])
 
-    const [count, setCount] = useState(initialValue)
+    const [count, setCount] = useState(generateData)
 
     return <>
         <button onClick={() => setCount(count + 1)}>+</button>
