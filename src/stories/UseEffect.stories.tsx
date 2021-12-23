@@ -52,18 +52,41 @@ export const SetTimeoutExample = () => {
     const [isHidden, setIsHidden] = useState(true)
 
     useEffect(() => {
-        console.log("sueEffect")
-    })
+        console.log('useEffect')
+        setTimeout(() => {
+            setIsHidden(true)
+        }, 2000)
+    }, [isHidden])
 
-    const hideButton = () => {setIsHidden(false)}
+    const hideButton = () => {
+        console.log('hideButton')
+        return setIsHidden(false)
+    }
 
     return <>
         <div>Hello! {count}
             <button onClick={() => setCount((state) => state + 1)}>+</button>
         </div>
         {isHidden && <Button hideButton={hideButton}/>}
+    </>
+}
 
+export const SetIntervalExample = () => {
+    console.log('SetIntervalExample')
 
+    const [count, setCount] = useState(1)
+
+    useEffect(() => {
+        console.log('useEffect')
+        setInterval(() => {
+            setCount(count + 1)
+        }, 1000)
+    })
+
+    return <>
+        <div>Hello! {count}
+            <button onClick={() => setCount((state) => state + 1)}>+</button>
+        </div>
     </>
 }
 
