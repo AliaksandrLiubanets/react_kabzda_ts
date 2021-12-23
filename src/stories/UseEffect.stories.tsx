@@ -41,31 +41,28 @@ export const Example1 = () => {
     </>
 }
 
+const Button = ({hideButton}: {hideButton: () => void}) => {
+    return <button onClick={hideButton}>hide me</button>
+}
+
 export const SetTimeoutExample = () => {
-    console.log('Example1')
+    console.log('SetTimeoutExample')
 
     const [count, setCount] = useState(1)
-    const [fake, setFake] = useState(1)
-    document.title = 'fsdds'
+    const [isHidden, setIsHidden] = useState(true)
 
     useEffect(() => {
-        console.log("sueEffect every render")
-        document.title = count.toString()
+        console.log("sueEffect")
     })
 
-
-    const changer = (state: number) => {
-        // console.log('changer')
-        return state + 1
-    }
+    const hideButton = () => {setIsHidden(false)}
 
     return <>
         <div>Hello! {count}
-            <button onClick={() => setCount(changer)}>+</button>
+            <button onClick={() => setCount((state) => state + 1)}>+</button>
         </div>
-        <div>fake: {fake}
-            <button onClick={() => setFake((state) => state + 1)}>+</button>
-        </div>
+        {isHidden && <Button hideButton={hideButton}/>}
+
 
     </>
 }
