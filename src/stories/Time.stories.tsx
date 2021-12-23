@@ -18,7 +18,9 @@ export const Time = () => {
     }, [])
 
     return <>
-        Hello! {count}
+        <div>
+            <span>Actual time: </span><span>hours </span><span>minutes </span><span>seconds </span>
+        </div>
     </>
 }
 
