@@ -71,7 +71,7 @@ export const SetTimeoutExample = () => {
     </>
 }
 
-export const SetIntervalExample = () => {
+export const SetIntervalExample1 = () => {
     console.log('SetIntervalExample')
 
     const [count, setCount] = useState(1)
@@ -79,14 +79,36 @@ export const SetIntervalExample = () => {
     useEffect(() => {
         console.log('useEffect')
         setInterval(() => {
+            console.log('tick' + count)
             setCount(count + 1)
+            // Не работает, т.к. count берется из замыкания, запоминает 1-е значение
+            // count и каждый раз его подсовывает для пересчёта.
         }, 1000)
-    })
+    }, [])
 
     return <>
-        <div>Hello! {count}
+        Hello! {count}
+        <div>
             <button onClick={() => setCount((state) => state + 1)}>+</button>
         </div>
+    </>
+}
+
+export const SetIntervalExample2 = () => {
+    console.log('SetIntervalExample2')
+
+    const [count, setCount] = useState(1)
+
+    useEffect(() => {
+        console.log('useEffect')
+        setInterval(() => {
+            console.log('tick ' + count)
+            setCount((state => state + 1))
+        }, 1000)
+    }, [])
+
+    return <>
+        Hello! {count}
     </>
 }
 
