@@ -1,18 +1,21 @@
-import React, {useState} from 'react'
+import React, {useMemo, useState} from 'react'
 
 export default {
-    title: 'ReactMemoExample'
+    title: 'useState'
 }
 
 const generateData = () => {
+    console.log('generateData')
     // difficult counting
     return 1234564654111
 }
 
+const val = generateData()
+
 export const Example1 = () => {
     console.log('Example1')
 
-    const initialValue = generateData()
+    const initialValue = useMemo(generateData, [])
 
     const [count, setCount] = useState(initialValue)
 
