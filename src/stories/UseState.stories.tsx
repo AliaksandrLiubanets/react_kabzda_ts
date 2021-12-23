@@ -13,12 +13,15 @@ const generateData = () => {
 export const Example1 = () => {
     console.log('Example1')
 
-    const initialValue = useMemo(generateData, [])
-
     const [count, setCount] = useState(generateData)
 
+    const changer = (state: number) => {
+        console.log('changer')
+        return state + 1
+    }
+
     return <>
-        <button onClick={() => setCount(count + 1)}>+</button>
+        <button onClick={() => setCount(changer)} >+</button>
         {count}
     </>
 }
