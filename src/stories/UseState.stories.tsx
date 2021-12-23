@@ -4,37 +4,21 @@ export default {
     title: 'ReactMemoExample'
 }
 
-const Count = (props: { count: number }) => {
-    console.log('COUNT')
-    return <div>{props.count}</div>
+const generateData = () => {
+    // difficult counting
+    return 1234564654111
 }
 
-const CountWithMemo = React.memo(Count)
+export const Example1 = () => {
+    console.log('Example1')
 
-const Table = (props: { users: string[] }) => {
-    console.log('TABLE')
-    return <>
-        {props.users.map((u, i) => <div key={i}>{u}</div>)}
-    </>
-}
+    const initialValue = generateData()
 
-const TableWithMemo = React.memo(Table)
-
-export const UsersWithCount = () => {
-    console.log('UsersWithCount')
-    const [count, setCount] = useState(0)
-    const [users, setUsers] = useState(['Gena', 'Vasya', 'Misha'])
-
-    const addUser = () => {
-        const user = "UserName" + new Date().getTime()
-        setUsers([...users, user])
-    }
+    const [count, setCount] = useState(initialValue)
 
     return <>
         <button onClick={() => setCount(count + 1)}>+</button>
-        <button onClick={addUser}>add user</button>
-        <CountWithMemo count={count}/>
-        <TableWithMemo users={users}/>
+        {count}
     </>
 }
 
