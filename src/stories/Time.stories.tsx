@@ -7,28 +7,31 @@ export default {
 export const Time = () => {
     console.log('Time')
 
-    const [time, setTime] = useState(0)
-
-    let todayZeroHMS
+    const [time, setTime] = useState(new Date())
 
     useEffect(() => {
-        const date = new Date()
-        todayZeroHMS = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0)
-        const timeNow = Date.now()
-        const timeHMS = (timeNow - todayZeroHMS.getTime()) / 1000
-        console.log('useEffect')
-            // console.log('tick ' + time)
-            setTime(timeHMS)
+        setInterval(() => {
+            setTime(new Date())
+        }, 1000)
     })
 
-    let hours = Math.floor(time / 3600)
-    let minutes = Math.floor((time - hours * 3600) / 60)
-    let seconds = Math.round(time - hours * 3600 - minutes * 60)
+    let hour = time.getHours().toString()
+    let minutes = time.getMinutes().toString()
+    let seconds = time.getSeconds().toString()
+    if (hour.length === 1) {
+        hour = '0'+ hour
+    }
+    if (minutes.length === 1) {
+        minutes = '0' + minutes
+    }
+    if (seconds.length === 1) {
+        seconds = '0' + seconds
+    }
 
     return <>
         <div>
             {/*<div><span>yearNow {date}</span><span>year {year}</span></div>*/}
-            <span>Actual time: {}</span><span>{hours} : </span><span>{minutes} : </span><span> {seconds}</span>
+            <span>Actual time: {}</span><span>{hour} : </span><span>{minutes} : </span><span> {seconds}</span>
         </div>
     </>
 }
