@@ -1,16 +1,10 @@
 import React, {useEffect, useState} from 'react'
 
 export default {
-    title: 'Time'
+    title: 'Clock'
 }
 
-const addZero = (time: string) => {
-    if (time.length === 1) {
-       return time = '0' + time
-    } else {
-        return time
-    }
-}
+const addZero = (num: number) => num < 10 ? '0' + num : num
 
 export const Time = () => {
     console.log('Time')
@@ -26,14 +20,13 @@ export const Time = () => {
         }
     })
 
-    let hour = time.getHours().toString()
-    let minutes = time.getMinutes().toString()
-    let seconds = time.getSeconds().toString()
-
     return <>
         <div>
             {/*<div><span>yearNow {date}</span><span>year {year}</span></div>*/}
-            <span>Actual time: {}</span><span>{addZero(hour)} : </span><span>{addZero(minutes)} : </span><span> {addZero(seconds)}</span>
+            <span>Actual time - </span>
+            <span>{addZero(time.getHours())}
+            : </span><span>{addZero(time.getMinutes())}
+            : </span><span> {addZero(time.getSeconds())}</span>
         </div>
     </>
 }
