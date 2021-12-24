@@ -102,8 +102,8 @@ export const SetIntervalExample2 = () => {
     useEffect(() => {
         console.log('useEffect')
         setInterval(() => {
-            console.log('tick ' + count)
-            setCount((state => state + 1))
+            // console.log('tick ' + count)
+            // setCount((state => state + 1))
         }, 1000)
     }, [])
 

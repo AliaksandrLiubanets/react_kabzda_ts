@@ -5,21 +5,30 @@ export default {
 }
 
 export const Time = () => {
-    console.log('SetIntervalExample2')
+    console.log('Time')
 
-    const [count, setCount] = useState(1)
+    const [time, setTime] = useState(0)
+
+    let todayZeroHMS
 
     useEffect(() => {
+        const date = new Date()
+        todayZeroHMS = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0)
+        const timeNow = Date.now()
+        const timeHMS = (timeNow - todayZeroHMS.getTime()) / 1000
         console.log('useEffect')
-        setInterval(() => {
-            console.log('tick ' + count)
-            setCount((state => state + 1))
-        }, 1000)
-    }, [])
+            // console.log('tick ' + time)
+            setTime(timeHMS)
+    })
+
+    let hours = Math.floor(time / 3600)
+    let minutes = Math.floor((time - hours * 3600) / 60)
+    let seconds = Math.round(time - hours * 3600 - minutes * 60)
 
     return <>
         <div>
-            <span>Actual time: </span><span>hours </span><span>minutes </span><span>seconds </span>
+            {/*<div><span>yearNow {date}</span><span>year {year}</span></div>*/}
+            <span>Actual time: {}</span><span>hours - {hours}; </span><span>minutes - {minutes}; </span><span>seconds - {seconds}</span>
         </div>
     </>
 }
