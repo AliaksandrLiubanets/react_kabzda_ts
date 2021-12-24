@@ -72,19 +72,19 @@ export const SetTimeoutExample = () => {
 }
 
 export const SetIntervalExample1 = () => {
-    console.log('SetIntervalExample')
+    console.log('SetIntervalExample1')
 
     const [count, setCount] = useState(1)
 
-    useEffect(() => {
-        console.log('useEffect')
-        setInterval(() => {
-            console.log('tick' + count)
-            setCount(count + 1)
+    // useEffect(() => {
+        // console.log('useEffectE1')
+        // const interval = setInterval(() => {
+            // console.log('tickE1' + count)
+            // setCount(count + 1)
             // Не работает, т.к. count берется из замыкания, запоминает 1-е значение
             // count и каждый раз его подсовывает для пересчёта.
-        }, 1000)
-    }, [])
+        // }, 1000)
+    // }, [])
 
     return <>
         Hello! {count}
@@ -100,11 +100,14 @@ export const SetIntervalExample2 = () => {
     const [count, setCount] = useState(1)
 
     useEffect(() => {
-        console.log('useEffect')
-        setInterval(() => {
-            // console.log('tick ' + count)
-            // setCount((state => state + 1))
+        console.log('useEffectE2')
+        const interval = setInterval(() => {
+            console.log('tickE2 ' + count)
+            setCount((state => state + 1))
         }, 1000)
+        return () => {
+            clearInterval(interval)
+        }
     }, [])
 
     return <>

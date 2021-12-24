@@ -4,34 +4,36 @@ export default {
     title: 'Time'
 }
 
+const addZero = (time: string) => {
+    if (time.length === 1) {
+       return time = '0' + time
+    } else {
+        return time
+    }
+}
+
 export const Time = () => {
     console.log('Time')
 
     const [time, setTime] = useState(new Date())
 
     useEffect(() => {
-        setInterval(() => {
+        const interval = setInterval(() => {
             setTime(new Date())
         }, 1000)
+        return () => {
+            clearInterval(interval)
+        }
     })
 
     let hour = time.getHours().toString()
     let minutes = time.getMinutes().toString()
     let seconds = time.getSeconds().toString()
-    if (hour.length === 1) {
-        hour = '0'+ hour
-    }
-    if (minutes.length === 1) {
-        minutes = '0' + minutes
-    }
-    if (seconds.length === 1) {
-        seconds = '0' + seconds
-    }
 
     return <>
         <div>
             {/*<div><span>yearNow {date}</span><span>year {year}</span></div>*/}
-            <span>Actual time: {}</span><span>{hour} : </span><span>{minutes} : </span><span> {seconds}</span>
+            <span>Actual time: {}</span><span>{addZero(hour)} : </span><span>{addZero(minutes)} : </span><span> {addZero(seconds)}</span>
         </div>
     </>
 }
