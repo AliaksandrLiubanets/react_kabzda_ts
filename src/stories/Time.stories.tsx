@@ -28,7 +28,7 @@ export const Time = () => {
     return <>
         <div>
             {/*<div><span>yearNow {date}</span><span>year {year}</span></div>*/}
-            <span>Actual time: {}</span><span>hours - {hours}; </span><span>minutes - {minutes}; </span><span>seconds - {seconds}</span>
+            <span>Actual time: {}</span><span>{hours} : </span><span>{minutes} : </span><span> {seconds}</span>
         </div>
     </>
 }
