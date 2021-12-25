@@ -18,7 +18,7 @@ export const Clock: FC<ClockProps> = (props) => {
                 : <ClockDigital/>
         }
         <div className={s.button}>
-            <button onClick={toggleClock}>Change clock</button>
+            <button onClick={toggleClock}>{isAnalogClock ? 'Chose digital clock' : 'Chose analog clock'}</button>
         </div>
     </div>
 }
