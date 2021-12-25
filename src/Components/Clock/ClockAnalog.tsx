@@ -7,13 +7,9 @@ import w_dail from '../../assets/watch_dail.png'
 
 type AnalogClockProps = {}
 
-const addZero = (num: number) => num < 10 ? '0' + num : num
-
-export const ClockAnalog: FC<AnalogClockProps> = (props) => {
+export const ClockAnalog: FC<AnalogClockProps> = () => {
 
     const [time, setTime] = useState(new Date())
-    const seconds = time.getSeconds()
-    const k = seconds * 6
 
     useEffect(() => {
         const interval = setInterval(() => {

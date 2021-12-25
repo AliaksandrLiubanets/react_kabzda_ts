@@ -4,9 +4,11 @@
     width: 700px;
     height: 750px;
     border: 1px solid black;
+    background-color: rgba(232, 248, 221, 0.2);
 }
 
 .button {
+    height: 50px;
     margin: 10px auto;
 
 }
@@ -16,7 +18,7 @@
     position: relative;
     width: 690px;
     height: 690px;
-    border: 5px solid blue;
+    border: 3px solid #ad2e03;
     border-radius: 50%;
     background-repeat: no-repeat;
     background-size: 700px;
@@ -27,4 +29,42 @@
     position: absolute;
     top: 40px;
     left: 297px;
+}
+
+.digital__block {
+    width: 500px;
+    height: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.digital {
+    margin: 0 auto;
+    border: 3px solid #ad2e03;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.digital span {
+    font-family: Arial;
+    font-size: 80px;
+    display: block;
+    width: 135px;
+}
+
+.digital span:last-child {
+    width: 100px;
+    margin-left: 14px;
+}
+
+.digital span:nth-child(2) {
+    margin-left: 14px;
+}
+
+.digital_hour {
+
 }
