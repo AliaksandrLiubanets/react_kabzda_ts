@@ -1,19 +1,25 @@
 import React, {FC, useEffect, useState} from 'react'
 import {ClockAnalog} from './AnalogClock'
 import {ClockDigital} from './ClockDigital'
+import s from '../Clock/AnalogClock.module.css'
 
 type ClockProps = {
-    isAnalogClock: boolean
 }
 
 export const Clock: FC<ClockProps> = (props) => {
 
-    return <>
+    const [isAnalogClock, setIsAnalogClock] = useState(true)
+    const toggleClock = () => setIsAnalogClock(!isAnalogClock)
+
+    return <div className={s.clock}>
         {
-            props.isAnalogClock
+            isAnalogClock
                 ? <ClockAnalog/>
                 : <ClockDigital/>
         }
-    </>
+        <div className={s.button}>
+            <button onClick={toggleClock}>Change clock</button>
+        </div>
+    </div>
 }
 

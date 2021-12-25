@@ -1,9 +1,29 @@
-.analog {
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+.clock {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 700px;
     border: 1px solid black;
-    width: 900px;
-    height: 900px;
+    background-color: #e7fdd8;
+}
+
+.button {
+    margin-top: 10px;
+}
+
+.analog {
+    background-color: #66bf3c;
+    margin: 0 auto;
 }
 
 .sec {
-
+    height: 700px;
+    background-color: #d5e8ec;
+    transform: rotate(deg);
 }
