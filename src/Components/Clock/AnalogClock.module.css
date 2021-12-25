@@ -13,6 +13,7 @@
     background-color: #e7fdd8;
 }
 
+
 .button {
     margin-top: 10px;
 }
@@ -20,10 +21,15 @@
 .analog {
     background-color: #66bf3c;
     margin: 0 auto;
+    position: relative;
 }
 
-.sec {
-    height: 700px;
-    background-color: #d5e8ec;
-    transform: rotate(deg);
+.analog img {
+    position: absolute;
 }
+
+/*.sec {*/
+/*    height: 700px;*/
+/*    background-color: #d5e8ec;*/
+/*    transform: rotate(deg);*/
+/*}*/
