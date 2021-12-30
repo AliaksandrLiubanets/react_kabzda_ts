@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react'
-import s from '../Clock/AnalogClock.module.css'
+import s from '../Clock/Clock.module.css'
 import sec from '../../assets/sec_700х100.png'
 import min from '../../assets/min_700х100.png'
 import hour from '../../assets/hour_700х100.png'
