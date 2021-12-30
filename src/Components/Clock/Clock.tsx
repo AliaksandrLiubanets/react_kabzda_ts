@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react'
 import {ClockAnalog} from './ClockAnalog'
 import {ClockDigital} from './ClockDigital'
-import s from '../Clock/AnalogClock.module.css'
+import s from '../Clock/Clock.module.css'
 
 type ClockProps = {
 }

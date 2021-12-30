@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react'
-import s from './AnalogClock.module.css'
+import s from './Clock.module.css'
 
 type ClockProps = {
 }
