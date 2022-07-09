@@ -20,7 +20,7 @@ export const GitHub = () => {
     }, [selectedUser])
 
     useEffect(() => {
-        axios.get('https://api.github.com/search/users?q=it-kamasutra')
+        axios.get<SearchResult>('https://api.github.com/search/users?q=it-kamasutra')
             .then(response => console.log(response.data.items))
     }, [])
 
