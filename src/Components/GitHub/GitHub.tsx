@@ -4,6 +4,7 @@ import axios from 'axios'
 
 type SearchUserType = {
     login: string
+    id: number
 }
 type SearchResult = {
     items: SearchUserType[]
@@ -11,7 +12,7 @@ type SearchResult = {
 
 export const GitHub = () => {
     const [selectedUser, setSelectedUser] = useState<string | null>(null)
-    const [users, setUsers] = useState<SearchResult | []>([])
+    const [users, setUsers] = useState<SearchUserType[]>([])
 
     useEffect(() => {
         if (selectedUser) {
@@ -22,7 +23,7 @@ export const GitHub = () => {
 
     useEffect(() => {
         axios.get<SearchResult>('https://api.github.com/search/users?q=it-kamasutra')
-            .then(response => console.log(response.data.items))
+            .then(response => setUsers(response.data.items))
     }, [])
 
     return <div className={s.container}>
@@ -32,8 +33,7 @@ export const GitHub = () => {
                 <button>find</button>
             </div>
             <ul>
-                {['Dimych', 'Artem']
-                    .map(u => <li className={u === selectedUser ? s.selected : ''}
+                {users.map(u => <li key={u.id} className={u.id === us ? s.selected : ''}
                                   onClick={() => {
                                       setSelectedUser(u)
                                       // document.title = u
