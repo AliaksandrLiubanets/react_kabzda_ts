@@ -4,7 +4,7 @@ export const GitHub = () => {
     return <div className={s.container}>
         <div>
             <div>
-                <input/>
+                <input placeholder={'search'}/>
             </div>
             <ul>
                 {['Dimych', 'Artem']
