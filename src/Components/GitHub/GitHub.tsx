@@ -1,6 +1,13 @@
 import s from './GitHub.module.css'
 import {useEffect, useState} from 'react'
 
+type SearchUserType = {
+    login: string
+}
+type SearchResult = {
+    items: SearchUserType[]
+}
+
 export const GitHub = () => {
     const [selectedUser, setSelectedUser] = useState<string | null>(null)
 
