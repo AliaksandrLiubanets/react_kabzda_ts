@@ -1,5 +1,6 @@
 import s from './GitHub.module.css'
 import {useEffect, useState} from 'react'
+import axios from 'axios'
 
 type SearchUserType = {
     login: string
@@ -17,6 +18,11 @@ export const GitHub = () => {
         }
 
     }, [selectedUser])
+
+    useEffect(() => {
+        axios.get('https://api.github.com/search/users?q=it-kamasutra')
+            .then(response => console.log(response.data.items))
+    }, [])
 
     return <div className={s.container}>
         <div>
