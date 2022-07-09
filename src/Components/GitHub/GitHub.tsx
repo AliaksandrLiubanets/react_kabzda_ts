@@ -1,6 +1,8 @@
 import s from './GitHub.module.css'
+import {useState} from 'react'
 
 export const GitHub = () => {
+    const [selectedUser, setSelectedUser] = useState<string | null>(null)
     return <div className={s.container}>
         <div>
             <div>
@@ -8,7 +10,11 @@ export const GitHub = () => {
             </div>
             <ul>
                 {['Dimych', 'Artem']
-                    .map(u => <li onClick={() => document.title = u}>{u}</li>)
+                    .map(u => <li className={u === selectedUser ? s.selected : ''}
+                        onClick={() => {
+                            setSelectedUser(u)
+                            document.title = u
+                        }}>{u}</li>)
                 }
             </ul>
         </div>
