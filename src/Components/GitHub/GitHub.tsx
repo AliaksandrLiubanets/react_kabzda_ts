@@ -11,6 +11,7 @@ type SearchResult = {
 
 export const GitHub = () => {
     const [selectedUser, setSelectedUser] = useState<string | null>(null)
+    const [users, setUsers] = useState<SearchResult | []>([])
 
     useEffect(() => {
         if (selectedUser) {
