@@ -6,6 +6,7 @@ import UncontrolledRating from './Components/UncontrolledRating/UncontrolledRati
 import Rating, {StarNumberType} from './Components/Rating/Rating'
 import Accordion from './Components/Accordion/Accordion'
 import {OnOff} from './Components/OnOff/OnOff'
+import {GitHub} from './Components/GitHub/GitHub'
 
 export type ItemsType = {
   id: number
@@ -39,6 +40,7 @@ function App() {
     <UncontrolledOnOff defaultOn={true} />
     <OnOff isToggle={isToggle} setIsToggle={setIsToggle}/>
     {/*<Select items={users} value={value} onChange={changeValue}/>*/}
+    <GitHub/>
   </div>
 }
 
