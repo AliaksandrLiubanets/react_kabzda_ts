@@ -11,12 +11,12 @@ type SearchResult = {
 }
 
 export const GitHub = () => {
-    const [selectedUser, setSelectedUser] = useState<string | null>(null)
+    const [selectedUser, setSelectedUser] = useState<SearchUserType | null>(null)
     const [users, setUsers] = useState<SearchUserType[]>([])
 
     useEffect(() => {
         if (selectedUser) {
-            document.title = selectedUser
+            document.title = selectedUser.login
         }
 
     }, [selectedUser])
@@ -33,11 +33,12 @@ export const GitHub = () => {
                 <button>find</button>
             </div>
             <ul>
-                {users.map(u => <li key={u.id} className={u.id === us ? s.selected : ''}
-                                  onClick={() => {
-                                      setSelectedUser(u)
-                                      // document.title = u
-                                  }}>{u}</li>)
+                {users.map(u => <li key={u.id}
+                                    className={`${s.user} ${u.id === (selectedUser && selectedUser.id) ? s.selected : ''}`}
+                                    onClick={() => {
+                                        setSelectedUser(u)
+                                        // document.title = u
+                                    }}>{u.login}</li>)
                 }
             </ul>
         </div>
