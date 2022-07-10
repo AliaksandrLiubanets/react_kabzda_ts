@@ -6,6 +6,10 @@
     padding: 10px;
 }
 
+.user {
+    cursor: pointer;
+}
+
 .selected {
     background-color: #b2b2b2;
 }
