@@ -21,9 +21,13 @@ export const GitHub = () => {
         }
     }, [selectedUser])
 
+const fetchData = (term: string) => {
+    axios.get<SearchResult>('https://api.github.com/search/users?q=' + term)
+        .then(response => setUsers(response.data.items))
+}
+
     useEffect(() => {
-        axios.get<SearchResult>('https://api.github.com/search/users?q=it-kamasutra')
-            .then(response => setUsers(response.data.items))
+        fetchData('it-kamasutra')
     }, [])
 
     return <div className={s.container}>
@@ -33,11 +37,7 @@ export const GitHub = () => {
                        value={tempSearch}
                        onChange={(e) => setTempSearch(e.currentTarget.value)}
                 />
-                <button onClick={() => {
-                    axios.get<SearchResult>(`https://api.github.com/search/users?q=${tempSearch}`)
-                        .then(response => setUsers(response.data.items))
-                }
-                }>find</button>
+                <button onClick={() => fetchData(tempSearch) }>find</button>
             </div>
             <ul>
                 {users.map(u => <li key={u.id}
