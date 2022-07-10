@@ -33,7 +33,11 @@ export const GitHub = () => {
                        value={tempSearch}
                        onChange={(e) => setTempSearch(e.currentTarget.value)}
                 />
-                <button>find</button>
+                <button onClick={() => {
+                    axios.get<SearchResult>(`https://api.github.com/search/users?q=${tempSearch}`)
+                        .then(response => setUsers(response.data.items))
+                }
+                }>find</button>
             </div>
             <ul>
                 {users.map(u => <li key={u.id}
