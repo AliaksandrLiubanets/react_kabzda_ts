@@ -34,7 +34,7 @@ export const GitHub = () => {
             </div>
             <ul>
                 {users.map(u => <li key={u.id}
-                                    className={`${s.user} ${u.id === (selectedUser && selectedUser.id) ? s.selected : ''}`}
+                                    className={`${s.user} ${u === selectedUser ? s.selected : ''}`}
                                     onClick={() => {
                                         setSelectedUser(u)
                                         // document.title = u
