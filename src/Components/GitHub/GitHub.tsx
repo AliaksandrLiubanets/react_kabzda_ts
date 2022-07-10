@@ -69,7 +69,14 @@ export const GitHub = () => {
         </div>
         <div>
             <h2>UserName</h2>
-            <div>Details</div>
+            <div>
+                {userDetails &&
+                <div>
+                    <div>{userDetails.login}</div>
+                    <div><img src={userDetails.avatar_url} alt={'avatar'}/></div>
+                    <div>followers: {userDetails.followers}</div>
+                </div>}
+            </div>
         </div>
     </div>
 }
