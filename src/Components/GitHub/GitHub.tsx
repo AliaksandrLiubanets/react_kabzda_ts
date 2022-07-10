@@ -13,12 +13,12 @@ type SearchResult = {
 export const GitHub = () => {
     const [selectedUser, setSelectedUser] = useState<SearchUserType | null>(null)
     const [users, setUsers] = useState<SearchUserType[]>([])
+    const [tempSearch, setTempSearch] = useState<string>('')
 
     useEffect(() => {
         if (selectedUser) {
             document.title = selectedUser.login
         }
-
     }, [selectedUser])
 
     useEffect(() => {
@@ -29,7 +29,10 @@ export const GitHub = () => {
     return <div className={s.container}>
         <div>
             <div>
-                <input placeholder={'search'}/>
+                <input placeholder={'search'}
+                       value={tempSearch}
+                       onChange={(e) => setTempSearch(e.currentTarget.value)}
+                />
                 <button>find</button>
             </div>
             <ul>
