@@ -22,6 +22,7 @@ export const GitHub = () => {
     const [users, setUsers] = useState<SearchUserType[]>([])
     const [tempSearch, setTempSearch] = useState<string>('it-kamasutra')
     const [searchTerm, setSearchTerm] = useState<string>('it-kamasutra')
+    const [userDetails, setUserDetails] = useState<UserType | null>(null)
 
     useEffect(() => {
         if (selectedUser) {
@@ -38,7 +39,13 @@ export const GitHub = () => {
         fetchData(tempSearch)
     }, [searchTerm])
 
-    return <div className={s.container}>
+    useEffect(() => {
+        if(selectedUser)
+        axios.get<UserType>(`https://api.github.com/users/${selectedUser.login}`)
+            .then(response => setUserDetails(response.data))
+    }, [selectedUser])
+
+    return <div className={s.container}>x
         <div>
             <div>
                 <input placeholder={'search'}
