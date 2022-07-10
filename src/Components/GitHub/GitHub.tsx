@@ -10,6 +10,13 @@ type SearchResult = {
     items: SearchUserType[]
 }
 
+type UserType = {
+    login: string
+    id: number
+    avatar_url: string
+    followers: number
+}
+
 export const GitHub = () => {
     const [selectedUser, setSelectedUser] = useState<SearchUserType | null>(null)
     const [users, setUsers] = useState<SearchUserType[]>([])
