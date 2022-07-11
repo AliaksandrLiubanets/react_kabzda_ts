@@ -2,7 +2,7 @@ import s from './GitHub.module.css'
 import {useState} from 'react'
 import {UserDetails} from './Header/UserDetails'
 import {Users} from './Header/Users'
-import {Header} from './Header/Header'
+import {Search} from './Header/Search'
 
 export type SearchUserType = {
     login: string
@@ -25,7 +25,7 @@ export const GitHub = () => {
 
     return <div className={s.container}>
         <div>
-            <Header setUsers={setUsers}/>
+            <Search setUsers={setUsers}/>
             <Users users={users} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
         </div>
         <UserDetails selectedUser={selectedUser}/>
