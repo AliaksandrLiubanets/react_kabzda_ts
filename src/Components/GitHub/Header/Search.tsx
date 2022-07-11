@@ -2,14 +2,14 @@ import {FC, useEffect, useState} from 'react'
 import axios from 'axios'
 import {SearchResult, SearchUserType} from '../GitHub'
 
-type HeaderProps = {
+type SearchProps = {
     // tempSearch: string
     // setTempSearch: (value: string) => void
     // setSearchTerm: (value: string) => void
     setUsers: (users: SearchUserType[]) => void
 }
 
-export const Header: FC<HeaderProps> = ({setUsers}) => {
+export const Search: FC<SearchProps> = ({setUsers}) => {
     const [tempSearch, setTempSearch] = useState<string>('it-kamasutra')
     const [searchTerm, setSearchTerm] = useState<string>('it-kamasutra')
 
