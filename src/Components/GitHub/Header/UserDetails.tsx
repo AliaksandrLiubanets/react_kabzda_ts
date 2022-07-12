@@ -16,15 +16,13 @@ export const UserDetails: FC<PropsType> = ({selectedUser}) => {
                 .then(response => setUserDetails(response.data))
     }, [selectedUser])
 
-    return <div>
-        <h2>UserName</h2>
+    return <>
+        {userDetails &&
         <div>
-            {userDetails &&
-            <div>
-                <div>{userDetails.login}</div>
-                <div><img src={userDetails.avatar_url} alt={'avatar'}/></div>
-                <div>followers: {userDetails.followers}</div>
-            </div>}
+            <h2>{userDetails.login}</h2>
+            <div><img src={userDetails.avatar_url} alt={'avatar'}/></div>
+            <div>followers: {userDetails.followers}</div>
         </div>
-    </div>
+        }
+    </>
 }
