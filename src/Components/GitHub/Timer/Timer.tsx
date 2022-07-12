@@ -15,12 +15,11 @@ export const Timer: FC<TimerType> = ({initialDigit, selectedUser, setIsTimeIsUp}
     }, [selectedUser])
 
     useEffect(() => {
-        if (digit === 0) {
-            debugger
-            setIsTimeIsUp(true)
+        if (digit < 1) {
+            setIsTimeIsUp(false)
         }
         const id = setInterval(() => {
-            setDigit(digit - 1)
+            setDigit((prev) => prev - 1)
         }, 1000)
         return () => {
             clearInterval(id)
