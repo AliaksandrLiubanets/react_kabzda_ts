@@ -8,7 +8,7 @@ type UsersProps = {
     setSelectedUser: (user: SearchUserType) => void
 }
 
-export const Users: FC<UsersProps> = ({users, selectedUser, setSelectedUser}) => {
+export const UsersList: FC<UsersProps> = ({users, selectedUser, setSelectedUser}) => {
 
     useEffect(() => {
         if (selectedUser) {
