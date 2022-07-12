@@ -2,29 +2,29 @@ import {FC, useEffect, useState} from 'react'
 import {SearchUserType} from '../GitHub'
 
 type TimerType = {
-    initialDigit: number
+    initialSeconds: number
     selectedUser: SearchUserType | null
-    setIsTimeIsUp: (isTimeIsUp: boolean) => void
+    setIsTimeAnough: (isTimeAnough: boolean) => void
 }
 
-export const Timer: FC<TimerType> = ({initialDigit, selectedUser, setIsTimeIsUp}) => {
-    const [digit, setDigit] = useState<number>(initialDigit)
+export const Timer: FC<TimerType> = ({initialSeconds, selectedUser, setIsTimeAnough}) => {
+    const [seconds, setSeconds] = useState<number>(initialSeconds)
 
     useEffect(() => {
-        setDigit(initialDigit)
+        setSeconds(initialSeconds)
     }, [selectedUser])
 
     useEffect(() => {
-        if (digit < 1) {
-            setIsTimeIsUp(false)
+        if (seconds < 1) {
+            setIsTimeAnough(false)
         }
         const id = setInterval(() => {
-            setDigit((prev) => prev - 1)
+            setSeconds((prev) => prev - 1)
         }, 1000)
         return () => {
             clearInterval(id)
         }
-    }, [digit])
+    }, [seconds])
 
-    return <div>{digit}</div>
+    return <div>{seconds}</div>
 }
