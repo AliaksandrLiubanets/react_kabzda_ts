@@ -10,10 +10,13 @@ type SearchProps = {
     // setSearchTerm: (value: string) => void
     setUsers: (users: SearchUserType[]) => void
     selectedUser: SearchUserType | null
-    setIsTimeIsUp: (isTimeIsUp: boolean) => void
+    setIsTimeAnough: (isTimeIsUp: boolean) => void
+    isTimeAnough: boolean
 }
 
-export const Search: FC<SearchProps> = ({setUsers, selectedUser, setIsTimeIsUp}) => {
+const initialSeconds = 6
+
+export const Search: FC<SearchProps> = ({setUsers, selectedUser, setIsTimeAnough, isTimeAnough}) => {
     const [tempSearch, setTempSearch] = useState<string>('it-kamasutra')
     const [searchTerm, setSearchTerm] = useState<string>('it-kamasutra')
 
@@ -33,6 +36,9 @@ export const Search: FC<SearchProps> = ({setUsers, selectedUser, setIsTimeIsUp})
             }}>find
             </button>
         </div>
-        <Timer initialDigit={3} selectedUser={selectedUser} setIsTimeIsUp={setIsTimeIsUp}/>
+        {
+            isTimeAnough && <Timer initialSeconds={initialSeconds} selectedUser={selectedUser} setIsTimeAnough={setIsTimeAnough}/>
+        }
+
     </div>
 }
