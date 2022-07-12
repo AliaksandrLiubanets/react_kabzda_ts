@@ -1,7 +1,8 @@
 import {FC, useEffect, useState} from 'react'
 import axios from 'axios'
-import {SearchResult, SearchUserType, Timer} from '../GitHub'
+import {SearchResult, SearchUserType} from '../GitHub'
 import s from './Search.module.css'
+import {Timer} from '../Timer/Timer'
 
 type SearchProps = {
     // tempSearch: string
@@ -9,9 +10,10 @@ type SearchProps = {
     // setSearchTerm: (value: string) => void
     setUsers: (users: SearchUserType[]) => void
     selectedUser: SearchUserType | null
+    setIsTimeIsUp: (isTimeIsUp: boolean) => void
 }
 
-export const Search: FC<SearchProps> = ({setUsers, selectedUser}) => {
+export const Search: FC<SearchProps> = ({setUsers, selectedUser, setIsTimeIsUp}) => {
     const [tempSearch, setTempSearch] = useState<string>('it-kamasutra')
     const [searchTerm, setSearchTerm] = useState<string>('it-kamasutra')
 
@@ -31,6 +33,6 @@ export const Search: FC<SearchProps> = ({setUsers, selectedUser}) => {
             }}>find
             </button>
         </div>
-        <Timer initialDigit={10} selectedUser={selectedUser}/>
+        <Timer initialDigit={3} selectedUser={selectedUser} setIsTimeIsUp={setIsTimeIsUp}/>
     </div>
 }
