@@ -6,9 +6,10 @@ type UsersProps = {
     users: SearchUserType[]
     selectedUser: SearchUserType | null
     setSelectedUser: (user: SearchUserType) => void
+    setIsTimeAnough: (isTimeAnough: boolean) => void
 }
 
-export const UsersList: FC<UsersProps> = ({users, selectedUser, setSelectedUser}) => {
+export const UsersList: FC<UsersProps> = ({users, selectedUser, setSelectedUser, setIsTimeAnough}) => {
 
     useEffect(() => {
         if (selectedUser) {
@@ -22,6 +23,7 @@ export const UsersList: FC<UsersProps> = ({users, selectedUser, setSelectedUser}
                                 className={`${s.user} ${u === selectedUser ? s.selected : ''}`}
                                 onClick={() => {
                                     setSelectedUser(u)
+                                    setIsTimeAnough(true)
                                 }}>{u.login}</li>)
             }
         </ul>
